@@ -1,2 +1,6746 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Zekeriah Ellington — Confidential Dossier</title></head><body><p>Temporary deployment update.</p></body></html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Zekeriah Ellington — Confidential Dossier</title>
+<style>/* =========================================================
+   ZEKE ELLINGTON — CHARACTER SHEET
+   dark street racing / garage aesthetic
+   no javascript
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.zeke-sheet {
+  --black: #090a0b;
+  --black-2: #0e1012;
+  --panel: #121416;
+  --panel-2: #17191c;
+  --panel-3: #1d2023;
+
+  --border: #292c30;
+  --border-light: #34383d;
+
+  --white: #e8e8e5;
+  --grey: #979a9d;
+  --grey-dark: #606469;
+
+  --red: #a51f25;
+  --red-light: #c42a31;
+  --red-dark: #641318;
+
+  --font-main: "Inter", Arial, sans-serif;
+  --font-condensed: "Barlow Condensed", Arial, sans-serif;
+
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+
+  background: var(--black);
+  color: var(--white);
+
+  font-family: var(--font-main);
+  font-size: 13px;
+  line-height: 1.65;
+
+  box-sizing: border-box;
+
+  position: relative;
+  overflow: visible;
+}
+
+
+.zeke-sheet *,
+.zeke-sheet *::before,
+.zeke-sheet *::after {
+  box-sizing: border-box;
+}
+
+
+.zeke-sheet input[type="radio"] {
+  display: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.zeke-header {
+  position: relative;
+
+  width: 100%;
+  height: clamp(420px, 62vh, 720px);
+
+  overflow: hidden;
+  background: #08090a;
+}
+
+
+.zeke-header-bg {
+  position: absolute;
+  inset: 0;
+}
+
+
+.zeke-header-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  filter:
+    grayscale(100%)
+    contrast(115%)
+    brightness(48%);
+}
+
+
+.zeke-header-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9,10,11,.98) 0%,
+      rgba(9,10,11,.85) 28%,
+      rgba(9,10,11,.25) 70%,
+      rgba(9,10,11,.65) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(9,10,11,.95),
+      transparent 55%
+    );
+}
+
+
+.zeke-header-noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: .18;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,.025) 3px
+    );
+
+  pointer-events: none;
+}
+
+
+.zeke-header-top {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  border-bottom: 1px solid rgba(255,255,255,.12);
+
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.55);
+}
+
+
+.zeke-header-content {
+  position: absolute;
+
+  left: 50px;
+  right: 50px;
+  bottom: 45px;
+
+  display: flex;
+  align-items: flex-end;
+
+  z-index: 2;
+}
+
+
+.zeke-header-number {
+  position: absolute;
+
+  left: -20px;
+  bottom: -85px;
+
+  font-family: var(--font-condensed);
+  font-weight: 900;
+  font-size: 270px;
+  line-height: .8;
+
+  color: rgba(255,255,255,.025);
+
+  pointer-events: none;
+}
+
+
+.zeke-header-title {
+  position: relative;
+  z-index: 2;
+}
+
+
+.zeke-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 5px;
+  padding: 5px 9px;
+
+  background: var(--red);
+
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+.zeke-header-title h1 {
+  margin: 0;
+
+  font-family: var(--font-condensed);
+  font-size: clamp(85px, 13vw, 145px);
+  line-height: .77;
+
+  font-weight: 900;
+  letter-spacing: -4px;
+
+  color: var(--white);
+}
+
+
+.zeke-lastname {
+  margin-top: 14px;
+
+  font-family: var(--font-condensed);
+  font-size: 17px;
+  font-weight: 600;
+
+  letter-spacing: 8px;
+  color: #aaa;
+}
+
+
+.zeke-header-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  margin-top: 18px;
+}
+
+
+.zeke-header-tags span {
+  padding: 5px 9px;
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
+}
+
+
+.zeke-header-tags .danger {
+  border-color: var(--red);
+  color: #d75a60;
+}
+
+
+.zeke-driver-id {
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  font-family: var(--font-condensed);
+}
+
+
+.zeke-driver-id .small {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--grey);
+}
+
+
+.zeke-driver-id strong {
+  font-size: 34px;
+  line-height: 1;
+}
+
+
+.zeke-driver-id .status-dot {
+  margin-top: 7px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  color: var(--red-light);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.zeke-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  width: 100%;
+  height: 72px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  background: rgba(14, 16, 18, .96);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+.zeke-nav label {
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+
+  border-right: 1px solid var(--border);
+
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+  color: #777;
+
+  transition: .25s ease;
+}
+
+
+.zeke-nav label:last-child {
+  border-right: 0;
+}
+
+
+.zeke-nav label small {
+  color: #444;
+  font-size: 9px;
+}
+
+
+.zeke-nav label::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -1px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--red);
+
+  transition: .25s ease;
+}
+
+
+.zeke-nav label:hover {
+  color: var(--white);
+}
+
+
+.zeke-nav label:hover::after {
+  left: 25%;
+  width: 50%;
+}
+
+
+#zeke-tab-01:checked ~ .zeke-nav label[for="zeke-tab-01"],
+#zeke-tab-02:checked ~ .zeke-nav label[for="zeke-tab-02"],
+#zeke-tab-03:checked ~ .zeke-nav label[for="zeke-tab-03"],
+#zeke-tab-04:checked ~ .zeke-nav label[for="zeke-tab-04"],
+#zeke-tab-05:checked ~ .zeke-nav label[for="zeke-tab-05"] {
+  color: var(--white);
+  background: #151719;
+}
+
+
+#zeke-tab-01:checked ~ .zeke-nav label[for="zeke-tab-01"]::after,
+#zeke-tab-02:checked ~ .zeke-nav label[for="zeke-tab-02"]::after,
+#zeke-tab-03:checked ~ .zeke-nav label[for="zeke-tab-03"]::after,
+#zeke-tab-04:checked ~ .zeke-nav label[for="zeke-tab-04"]::after,
+#zeke-tab-05:checked ~ .zeke-nav label[for="zeke-tab-05"]::after {
+  left: 0;
+  width: 100%;
+}
+
+
+/* =========================================================
+   TAB DISPLAY
+========================================================= */
+
+.zeke-panel {
+  display: none;
+
+  padding: 45px;
+
+  animation: zekeFade .35s ease;
+}
+
+
+#zeke-tab-01:checked ~ .panel-profile,
+#zeke-tab-02:checked ~ .panel-history,
+#zeke-tab-03:checked ~ .panel-garage,
+#zeke-tab-04:checked ~ .panel-connections,
+#zeke-tab-05:checked ~ .panel-extras {
+  display: block;
+}
+
+
+@keyframes zekeFade {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   UNIVERSAL HEADINGS
+========================================================= */
+
+.zeke-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  padding-bottom: 16px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.zeke-section-heading > div {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+
+.section-index {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 800;
+
+  color: var(--red);
+}
+
+
+.zeke-section-heading h2 {
+  margin: 0;
+
+  font-family: var(--font-condensed);
+  font-size: 32px;
+  line-height: 1;
+
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+.section-code {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+  color: var(--grey-dark);
+}
+
+
+.mini-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  font-family: var(--font-condensed);
+  font-size: 15px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.mini-title span {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--grey-dark);
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr 220px;
+  gap: 30px;
+}
+
+
+.profile-photo {
+  position: relative;
+  height: 350px;
+}
+
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    grayscale(100%)
+    contrast(110%);
+}
+
+
+.profile-photo::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  box-shadow: inset 0 0 70px rgba(0,0,0,.45);
+
+  pointer-events: none;
+}
+
+
+.photo-code {
+  position: absolute;
+
+  left: 12px;
+  bottom: 12px;
+
+  z-index: 2;
+
+  padding: 4px 7px;
+
+  background: var(--black);
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+
+.photo-corner {
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  z-index: 3;
+}
+
+
+.photo-corner.top-left {
+  left: -5px;
+  top: -5px;
+
+  border-left: 2px solid var(--red);
+  border-top: 2px solid var(--red);
+}
+
+
+.photo-corner.bottom-right {
+  right: -5px;
+  bottom: -5px;
+
+  border-right: 2px solid var(--red);
+  border-bottom: 2px solid var(--red);
+}
+
+
+.profile-name > span {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+
+  letter-spacing: 2px;
+  color: var(--red);
+}
+
+
+.profile-name h3 {
+  margin: 6px 0 10px;
+
+  font-family: var(--font-condensed);
+  font-size: 35px;
+  line-height: .95;
+
+  font-weight: 400;
+}
+
+
+.profile-name h3 b {
+  display: block;
+  font-size: 42px;
+  font-weight: 900;
+}
+
+
+.profile-name p {
+  color: var(--grey);
+  font-size: 11px;
+}
+
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-top: 25px;
+
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+
+.info {
+  padding: 10px 12px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.info span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+
+.info strong {
+  font-family: var(--font-condensed);
+  font-size: 12px;
+}
+
+
+.red-text {
+  color: var(--red-light) !important;
+}
+
+
+.zeke-quote {
+  margin-top: 18px;
+  padding: 13px 15px;
+
+  border-left: 2px solid var(--red);
+
+  background: var(--panel);
+
+  color: #aaa;
+  font-size: 10px;
+  font-style: italic;
+}
+
+
+.zeke-quote > span {
+  margin-right: 4px;
+
+  font-size: 20px;
+  color: var(--red);
+}
+
+
+/* driver stats */
+
+.driver-stats {
+  padding: 18px;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel);
+}
+
+
+.stat {
+  margin-bottom: 17px;
+}
+
+
+.stat > div:first-child {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+
+  font-family: var(--font-condensed);
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+
+.stat b {
+  color: #777;
+}
+
+
+.stat-track {
+  height: 3px;
+
+  background: #282b2e;
+}
+
+
+.stat-track i {
+  display: block;
+
+  height: 100%;
+
+  background: #aaa;
+}
+
+
+.danger-stat .stat-track i {
+  background: var(--red);
+}
+
+
+.risk-box {
+  margin-top: 25px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.risk-box > span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 2px;
+  color: var(--grey-dark);
+}
+
+
+.risk-box > strong {
+  display: block;
+
+  margin: 2px 0 9px;
+
+  font-family: var(--font-condensed);
+  font-size: 25px;
+
+  color: var(--red-light);
+}
+
+
+.risk-bars {
+  display: flex;
+  gap: 3px;
+}
+
+
+.risk-bars i,
+.risk-bars em {
+  flex: 1;
+  height: 6px;
+}
+
+
+.risk-bars i {
+  background: var(--red);
+}
+
+
+.risk-bars em {
+  background: #292b2e;
+}
+
+
+.risk-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  margin-top: 18px;
+
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+
+.risk-summary > div {
+  min-height: 54px;
+  padding: 10px 11px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.risk-summary span,
+.risk-note > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-family: var(--font-condensed);
+  font-size: 6px;
+
+  letter-spacing: 1.4px;
+  color: var(--grey-dark);
+}
+
+
+.risk-summary strong {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  line-height: 1.25;
+
+  color: #b7b7b7;
+}
+
+
+.risk-note {
+  margin-top: 12px;
+  padding: 11px 12px;
+
+  border-left: 2px solid var(--red);
+
+  background:
+    linear-gradient(90deg, rgba(165,31,37,.08), transparent 70%),
+    #101214;
+}
+
+
+.risk-note p {
+  margin: 0;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  line-height: 1.55;
+
+  letter-spacing: .8px;
+  color: #777;
+}
+
+
+.profile-bottom {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 30px;
+
+  margin-top: 35px;
+  padding-top: 30px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.profile-text p {
+  color: var(--grey);
+  font-size: 11px;
+}
+
+
+.trait-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+
+  align-content: start;
+}
+
+
+.trait-grid span {
+  padding: 10px;
+
+  border: 1px solid var(--border);
+
+  text-align: center;
+
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  color: #aaa;
+}
+
+
+/* =========================================================
+   HISTORY — EXPANDED TIMELINE
+========================================================= */
+
+.history-hero {
+  position: relative;
+  min-height: 250px;
+
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(30px, 6vw, 100px);
+  align-items: center;
+
+  padding: clamp(35px, 5vw, 70px);
+  margin-bottom: 60px;
+
+  border: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      115deg,
+      #141618,
+      #0b0c0e 70%
+    );
+
+  overflow: hidden;
+}
+
+.history-hero-number {
+  position: absolute;
+  right: 20px;
+  top: -70px;
+
+  font-family: var(--font-condensed);
+  font-size: 330px;
+  line-height: 1;
+  font-weight: 900;
+
+  color: rgba(255,255,255,.018);
+}
+
+.history-hero-title,
+.history-hero-description {
+  position: relative;
+  z-index: 2;
+}
+
+.history-hero-title > span {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--red);
+}
+
+.history-hero-title h3 {
+  margin: 7px 0 0;
+
+  font-family: var(--font-condensed);
+  font-size: clamp(38px, 4vw, 67px);
+  line-height: .9;
+  font-weight: 900;
+}
+
+.history-hero-description p {
+  color: var(--grey);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.history-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  margin-top: 25px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border);
+}
+
+.history-legend span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+
+  color: #777;
+}
+
+.history-legend i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #777;
+}
+
+.history-legend .legal i {
+  background: var(--red);
+}
+
+.history-chapter {
+  margin-bottom: 80px;
+}
+
+.chapter-heading {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 20px;
+  align-items: center;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.chapter-number {
+  font-family: var(--font-condensed);
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 900;
+
+  color: #292c30;
+}
+
+.chapter-heading small {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 2px;
+
+  color: var(--red);
+}
+
+.chapter-heading h3 {
+  margin: 1px 0 0;
+
+  font-family: var(--font-condensed);
+  font-size: 23px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.chapter-location {
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #555;
+}
+
+.history-line {
+  position: relative;
+}
+
+.history-line::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 178px;
+
+  width: 1px;
+  background: var(--border);
+}
+
+.history-event {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 140px 40px 1fr;
+
+  padding: 35px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.035);
+}
+
+.history-date {
+  padding-top: 5px;
+  text-align: right;
+  font-family: var(--font-condensed);
+}
+
+.history-date strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.history-date span {
+  display: block;
+  margin-top: 5px;
+
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+.history-dot {
+  position: relative;
+}
+
+.history-dot::before {
+  content: "";
+
+  position: absolute;
+  top: 9px;
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  transform: translateX(-50%) rotate(45deg);
+
+  border: 2px solid #555;
+  background: var(--black);
+}
+
+.history-event-content {
+  max-width: 900px;
+  padding-left: 15px;
+}
+
+.event-type {
+  display: inline-block;
+  margin-bottom: 5px;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  color: #777;
+}
+
+.history-event-content h4 {
+  margin: 0 0 9px;
+
+  font-family: var(--font-condensed);
+  font-size: 21px;
+  letter-spacing: .5px;
+}
+
+.history-event-content p {
+  max-width: 850px;
+  margin: 0;
+
+  color: var(--grey);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.history-event-content blockquote {
+  margin: 18px 0 0;
+  padding: 12px 15px;
+
+  border-left: 2px solid #555;
+  background: var(--panel);
+
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-style: italic;
+  color: #aaa;
+}
+
+/* Legal / police entries */
+
+.history-event.legal-event {
+  margin: 15px 0;
+  padding: 30px 20px 30px 0;
+
+  border-top: 1px solid var(--red-dark);
+  border-bottom: 1px solid var(--red-dark);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(165,31,37,.055) 22%,
+      rgba(165,31,37,.02)
+    );
+}
+
+.legal-event .history-date strong {
+  color: var(--red-light);
+}
+
+.legal-event .history-dot::before {
+  border-color: var(--red);
+  background: var(--red);
+}
+
+.legal-event .event-type {
+  padding: 4px 7px;
+  background: var(--red);
+  color: #fff;
+}
+
+.legal-event .history-event-content h4 {
+  color: #e1b6b8;
+}
+
+.legal-record {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 20px;
+
+  border-top: 1px solid var(--red-dark);
+  border-left: 1px solid var(--red-dark);
+}
+
+.legal-record > div {
+  padding: 10px;
+
+  border-right: 1px solid var(--red-dark);
+  border-bottom: 1px solid var(--red-dark);
+}
+
+.legal-record span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 1.3px;
+
+  color: #76474a;
+}
+
+.legal-record strong {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+  color: #c69497;
+}
+
+.police-stamp {
+  display: inline-block;
+
+  margin-top: 20px;
+  padding: 6px 10px;
+
+  border: 2px solid var(--red-dark);
+
+  transform: rotate(-2deg);
+
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  color: var(--red);
+}
+
+
+/* =========================================================
+   GARAGE
+========================================================= */
+
+.garage-dashboard {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr 1.5fr;
+
+  margin-bottom: 55px;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel);
+}
+
+
+.dashboard-title,
+.dashboard-preference {
+  padding: 18px 20px;
+}
+
+
+.dashboard-title {
+  border-right: 1px solid var(--border);
+}
+
+
+.dashboard-title small,
+.dashboard-preference span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+
+.dashboard-title strong {
+  font-family: var(--font-condensed);
+  font-size: 18px;
+}
+
+
+.dashboard-data {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+.dashboard-data > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid var(--border);
+}
+
+
+.dashboard-data strong {
+  font-family: var(--font-condensed);
+  font-size: 25px;
+}
+
+
+.dashboard-data span {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+
+.dashboard-preference {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.dashboard-preference strong {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+
+  color: #aaa;
+}
+
+
+/* CAR */
+
+.zeke-car {
+  position: relative;
+
+  margin-bottom: 70px;
+  padding: 28px;
+
+  border: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--panel) 0%,
+      #0c0e10 100%
+    );
+
+  overflow: hidden;
+}
+
+
+.car-background-number {
+  position: absolute;
+
+  right: -15px;
+  top: -55px;
+
+  font-family: var(--font-condensed);
+  font-size: 210px;
+  line-height: 1;
+
+  font-weight: 900;
+
+  color: rgba(255,255,255,.025);
+
+  pointer-events: none;
+}
+
+
+.car-heading {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.car-category {
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 2px;
+  color: var(--grey-dark);
+}
+
+
+.car-heading h3 {
+  margin: 1px 0;
+
+  font-family: var(--font-condensed);
+  font-size: 28px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+.car-status {
+  padding: 5px 9px;
+
+  border: 1px solid var(--border);
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.car-status.owned {
+  color: #aaa;
+}
+
+
+.car-status.danger {
+  border-color: var(--red-dark);
+  color: var(--red-light);
+}
+
+
+.car-status.impounded {
+  border-color: #555;
+  color: #777;
+}
+
+
+.car-stage {
+  position: relative;
+
+  min-height: 340px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.car-image {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 78%;
+
+  transform: translate(-45%, -50%);
+
+  z-index: 2;
+}
+
+
+.car-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 25px 20px rgba(0,0,0,.55))
+    grayscale(15%);
+}
+
+
+.car-model {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 70px;
+
+  font-family: var(--font-condensed);
+}
+
+
+.car-model small {
+  display: block;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+  color: var(--red);
+}
+
+
+.car-model > strong {
+  display: block;
+
+  font-size: 21px;
+  line-height: 1;
+
+  letter-spacing: 2px;
+}
+
+
+.car-model h4 {
+  margin: 0;
+
+  font-size: clamp(70px, 10vw, 110px);
+  line-height: .8;
+
+  font-weight: 900;
+
+  letter-spacing: -4px;
+
+  color: rgba(255,255,255,.09);
+}
+
+
+.car-model > span {
+  font-size: 13px;
+  letter-spacing: 4px;
+
+  color: #555;
+}
+
+
+.car-data-layout {
+  position: relative;
+  z-index: 4;
+
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+
+  margin-top: 10px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.car-specifications {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border-left: 1px solid var(--border);
+}
+
+
+.car-specifications > div {
+  padding: 10px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.car-specifications span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1.3px;
+  color: var(--grey-dark);
+}
+
+
+.car-specifications strong {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+}
+
+
+.car-story {
+  padding: 18px 20px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.tiny-label {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 2px;
+  color: var(--grey-dark);
+}
+
+
+.car-story h5 {
+  margin: 2px 0 8px;
+
+  font-family: var(--font-condensed);
+  font-size: 17px;
+}
+
+
+.car-story p {
+  margin: 0;
+
+  font-size: 9px;
+  line-height: 1.6;
+
+  color: var(--grey);
+}
+
+
+.car-story blockquote {
+  margin: 12px 0 0;
+  padding-left: 10px;
+
+  border-left: 1px solid var(--red);
+
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  font-style: italic;
+
+  color: #bbb;
+}
+
+
+.car-performance {
+  padding: 15px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.performance-row {
+  display: grid;
+  grid-template-columns: 55px 1fr 25px;
+  gap: 7px;
+
+  align-items: center;
+
+  margin-bottom: 12px;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+
+.performance-row > div {
+  height: 3px;
+
+  background: #292c2f;
+}
+
+
+.performance-row i {
+  display: block;
+
+  height: 100%;
+
+  background: #aaa;
+}
+
+
+.performance-row b {
+  text-align: right;
+
+  color: #777;
+}
+
+
+/* RACER */
+
+.ownership-warning {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 15px;
+  padding: 6px 9px;
+
+  border-left: 2px solid var(--red);
+
+  background: rgba(165,31,37,.07);
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+  color: #777;
+}
+
+
+.race-car .performance-row i {
+  background: var(--red);
+}
+
+
+.illegal-warning {
+  margin-top: 12px;
+  padding: 7px;
+
+  border: 1px solid var(--red-dark);
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+  color: var(--red-light);
+}
+
+
+/* GHOST */
+
+.ghost-car {
+  border-color: #35383b;
+
+  background:
+    linear-gradient(
+      135deg,
+      #101214,
+      #08090a
+    );
+}
+
+
+.evidence-strip {
+  position: relative;
+  z-index: 5;
+
+  margin: 15px -28px 0;
+  padding: 5px;
+
+  overflow: hidden;
+
+  background: #d4d4cf;
+  color: #161616;
+
+  white-space: nowrap;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.ghost-car .car-image img {
+  filter:
+    grayscale(100%)
+    contrast(115%)
+    brightness(55%);
+}
+
+
+.ghost-file {
+  display: grid;
+  grid-template-columns: .9fr 1.4fr 1fr;
+
+  position: relative;
+  z-index: 5;
+
+  border: 1px solid var(--border);
+}
+
+
+.ghost-case,
+.fatality {
+  padding: 17px;
+}
+
+
+.ghost-case {
+  border-right: 1px solid var(--border);
+}
+
+
+.ghost-case small,
+.ghost-case span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+
+.ghost-case strong {
+  display: block;
+
+  margin: 5px 0;
+
+  font-family: var(--font-condensed);
+  font-size: 16px;
+}
+
+
+.ghost-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border-right: 1px solid var(--border);
+}
+
+
+.ghost-data > div {
+  padding: 8px 10px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+
+.ghost-data span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 6px;
+
+  letter-spacing: 1px;
+  color: var(--grey-dark);
+}
+
+
+.ghost-data b {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+}
+
+
+.fatality {
+  background: rgba(165,31,37,.05);
+}
+
+
+.fatality span,
+.fatality small {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+
+.fatality strong {
+  display: block;
+
+  margin: 7px 0;
+
+  font-family: var(--font-condensed);
+  font-size: 15px;
+  line-height: 1.2;
+
+  color: var(--red-light);
+}
+
+
+.ghost-footer {
+  margin-top: 15px;
+
+  text-align: center;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  letter-spacing: 4px;
+  color: #444;
+}
+
+
+/* =========================================================
+   GARAGE COLLECTION
+========================================================= */
+
+.garage-collection {
+  margin-top: 100px;
+}
+
+.collection-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+  margin-bottom: 25px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.collection-heading span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 2px;
+
+  color: var(--red);
+}
+
+.collection-heading h3 {
+  margin: 3px 0 0;
+
+  font-family: var(--font-condensed);
+  font-size: 27px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.collection-heading small {
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 2px;
+
+  color: var(--grey-dark);
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 18px;
+}
+
+.collection-car {
+  position: relative;
+  min-height: 480px;
+
+  padding: 25px;
+
+  border: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      145deg,
+      #141618,
+      #0c0e0f
+    );
+
+  overflow: hidden;
+}
+
+.collection-number {
+  position: absolute;
+  right: 10px;
+  top: -35px;
+
+  font-family: var(--font-condensed);
+  font-size: 160px;
+  line-height: 1;
+  font-weight: 900;
+
+  color: rgba(255,255,255,.025);
+}
+
+.collection-status {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  padding: 4px 8px;
+
+  border: 1px solid var(--border);
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 1.5px;
+
+  color: #777;
+}
+
+.collection-image {
+  position: relative;
+  height: 230px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 30px 0 10px;
+}
+
+.collection-image::before {
+  content: "";
+
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 30px;
+
+  height: 25px;
+
+  background: rgba(0,0,0,.65);
+  filter: blur(18px);
+  border-radius: 50%;
+}
+
+.collection-image img {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 620px;
+  max-height: 220px;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 15px 15px rgba(0,0,0,.5));
+}
+
+.collection-model {
+  position: relative;
+}
+
+.collection-model > span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 2px;
+
+  color: var(--red);
+}
+
+.collection-model > strong {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  color: #777;
+}
+
+.collection-model h4 {
+  margin: -3px 0 15px;
+
+  font-family: var(--font-condensed);
+  font-size: clamp(32px, 4vw, 53px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.collection-specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.collection-specs > div {
+  padding: 9px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.collection-specs span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 6px;
+  letter-spacing: 1px;
+
+  color: var(--grey-dark);
+}
+
+.collection-specs strong {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  color: #aaa;
+}
+
+.collection-note {
+  padding-top: 15px;
+}
+
+.collection-note span {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 1.5px;
+
+  color: var(--red);
+}
+
+.collection-note p {
+  margin: 4px 0 0;
+
+  font-size: 9px;
+  line-height: 1.6;
+
+  color: var(--grey);
+}
+
+
+/* =========================================================
+   CONNECTIONS
+========================================================= */
+
+.connections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+
+.connection {
+  position: relative;
+
+  min-height: 190px;
+
+  display: grid;
+  grid-template-columns: 135px 1fr;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel);
+
+  overflow: hidden;
+}
+
+
+.connection-photo {
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+.connection-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: grayscale(100%);
+}
+
+
+.connection-number {
+  position: absolute;
+
+  right: 5px;
+  bottom: -25px;
+
+  font-family: var(--font-condensed);
+  font-size: 100px;
+  line-height: 1;
+
+  font-weight: 900;
+
+  color: rgba(255,255,255,.025);
+}
+
+
+.connection-content {
+  position: relative;
+  z-index: 2;
+
+  padding: 18px;
+}
+
+
+.connection-content > span {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+  color: var(--red);
+}
+
+
+.connection-content h3 {
+  margin: 3px 0 10px;
+
+  font-family: var(--font-condensed);
+  font-size: 18px;
+}
+
+
+.connection-content p {
+  margin: 0;
+
+  font-size: 9px;
+  color: var(--grey);
+}
+
+
+.dangerous-connection {
+  border-color: var(--red-dark);
+}
+
+
+/* =========================================================
+   EXTRAS
+========================================================= */
+
+.extras-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr .85fr;
+  gap: 20px;
+}
+
+
+.playlist,
+.headcanons,
+.zeke-phone {
+  border: 1px solid var(--border);
+
+  background: var(--panel);
+
+  padding: 18px;
+}
+
+
+.playlist-cover {
+  position: relative;
+
+  height: 150px;
+
+  margin-bottom: 10px;
+
+  overflow: hidden;
+}
+
+
+.playlist-cover img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: grayscale(100%) brightness(60%);
+}
+
+
+.playlist-cover > span {
+  position: absolute;
+
+  left: 15px;
+  bottom: 10px;
+
+  font-size: 28px;
+}
+
+
+.track {
+  display: grid;
+  grid-template-columns: 25px 1fr 30px;
+
+  align-items: center;
+
+  padding: 9px 3px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.track > b {
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  color: var(--red);
+}
+
+
+.track div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.track strong {
+  font-family: var(--font-condensed);
+  font-size: 10px;
+}
+
+
+.track span,
+.track small {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  color: var(--grey-dark);
+}
+
+
+.headcanon {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  gap: 10px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.headcanon > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border: 1px solid var(--border);
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  color: var(--red);
+}
+
+
+.headcanon p {
+  margin: 0;
+
+  font-size: 9px;
+  color: var(--grey);
+}
+
+
+/* phone */
+
+.zeke-phone {
+  border-radius: 22px;
+
+  background: #0b0c0d;
+}
+
+
+.phone-top {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 15px;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+
+  color: #777;
+}
+
+
+.phone-contact {
+  padding-bottom: 13px;
+  margin-bottom: 18px;
+
+  border-bottom: 1px solid var(--border);
+
+  text-align: center;
+
+  font-family: var(--font-condensed);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.phone-contact small {
+  display: block;
+
+  font-size: 6px;
+  letter-spacing: 1px;
+
+  color: var(--grey-dark);
+}
+
+
+.message {
+  width: 82%;
+
+  margin-bottom: 10px;
+  padding: 8px 10px;
+
+  border-radius: 10px;
+
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+
+.message small {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 6px;
+
+  opacity: .45;
+}
+
+
+.received {
+  background: #1d2023;
+}
+
+
+.sent {
+  margin-left: auto;
+
+  background: #303337;
+}
+
+
+.warning-message {
+  border: 1px solid var(--red-dark);
+
+  color: #d8a1a4;
+}
+
+
+.phone-input {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 22px;
+  padding: 8px 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  color: #555;
+}
+
+
+.phone-input span {
+  color: var(--red);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.zeke-footer {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 14px 25px;
+
+  border-top: 1px solid var(--border);
+
+  background: #08090a;
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+
+  letter-spacing: 1.7px;
+  color: #444;
+}
+
+
+.zeke-footer b {
+  color: var(--red);
+}
+
+
+/* =========================================================
+   EXTENDED PROFILE / MOODBOARD
+========================================================= */
+
+.profile-extended {
+  display: grid;
+  grid-template-columns: minmax(320px, .8fr) minmax(500px, 1.2fr);
+  gap: 30px;
+
+  margin-top: 45px;
+  padding-top: 35px;
+
+  border-top: 1px solid var(--border);
+}
+
+.psyche-card,
+.mood-profile {
+  padding: clamp(18px, 2vw, 28px);
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.psyche-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.psyche-grid > div {
+  min-height: 92px;
+  padding: 14px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.psyche-grid span,
+.psyche-grid small {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  color: var(--grey-dark);
+}
+
+.psyche-grid strong {
+  margin: 2px 0;
+  font-family: var(--font-condensed);
+  font-size: clamp(16px, 2vw, 25px);
+  line-height: 1;
+}
+
+.psyche-note {
+  margin: 17px 0 0;
+  color: var(--grey);
+  font-size: 9px;
+}
+
+.social-intel-strip {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 12px;
+
+  margin: calc(clamp(18px, 2vw, 28px) * -1);
+  margin-bottom: 22px;
+  padding: 11px 14px;
+
+  border-bottom: 1px solid var(--border);
+
+  background:
+    linear-gradient(90deg, rgba(165,31,37,.10), transparent 55%),
+    #0e1012;
+
+  font-family: var(--font-condensed);
+  text-transform: uppercase;
+}
+
+
+.social-intel-strip span {
+  color: var(--red-light);
+  font-size: 7px;
+  letter-spacing: 1.5px;
+}
+
+
+.social-intel-strip strong {
+  justify-self: end;
+
+  color: #777;
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+
+
+.social-intel-strip em {
+  grid-column: 1 / -1;
+
+  font-style: normal;
+  color: #444;
+  font-size: 6px;
+  letter-spacing: 1.2px;
+}
+
+
+.mood-profile-top {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 15px;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.mood-avatar {
+  width: 60px;
+  height: 60px;
+  padding: 3px;
+
+  border: 1px solid var(--red);
+  border-radius: 50%;
+}
+
+.mood-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  filter: grayscale(100%);
+}
+
+.mood-user strong {
+  display: block;
+  font-family: var(--font-condensed);
+  font-size: 16px;
+}
+
+.mood-user span {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 1.4px;
+  color: var(--grey-dark);
+}
+
+.mood-stats {
+  display: flex;
+  gap: clamp(12px, 2vw, 28px);
+}
+
+.mood-stats div {
+  text-align: center;
+}
+
+.mood-stats strong,
+.mood-stats span {
+  display: block;
+  font-family: var(--font-condensed);
+}
+
+.mood-stats strong {
+  font-size: 14px;
+}
+
+.mood-stats span {
+  font-size: 6px;
+  letter-spacing: 1px;
+  color: var(--grey-dark);
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.mood-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  filter: grayscale(100%) contrast(110%) brightness(75%);
+  transition: .25s ease;
+}
+
+.mood-grid img:hover {
+  filter: grayscale(35%) contrast(110%) brightness(90%);
+}
+
+
+/* =========================================================
+   LOST / WRECKED GARAGE
+========================================================= */
+
+.lost-garage {
+  margin-top: 90px;
+}
+
+.lost-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.lost-car {
+  position: relative;
+  padding: 20px;
+
+  border: 1px solid #392124;
+  background:
+    linear-gradient(145deg, rgba(165,31,37,.05), transparent 45%),
+    #0d0e10;
+
+  overflow: hidden;
+}
+
+.lost-status {
+  position: absolute;
+  z-index: 4;
+  right: 16px;
+  top: 16px;
+
+  padding: 4px 8px;
+  border: 1px solid var(--red-dark);
+
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--red-light);
+
+  transform: rotate(2deg);
+}
+
+.lost-image {
+  height: 230px;
+  margin-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,.012) 10px,
+      rgba(255,255,255,.012) 11px
+    );
+}
+
+.lost-image img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+
+  filter: grayscale(100%) contrast(125%) brightness(65%);
+}
+
+.lost-car > span {
+  font-family: var(--font-condensed);
+  font-size: 7px;
+  letter-spacing: 1.8px;
+  color: var(--red);
+}
+
+.lost-car h4 {
+  margin: 3px 0 10px;
+  font-family: var(--font-condensed);
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.lost-car h4 b {
+  font-weight: 900;
+}
+
+.lost-car p {
+  margin: 0;
+  max-width: 650px;
+  color: var(--grey);
+  font-size: 10px;
+}
+
+.lost-meta {
+  margin-top: 17px;
+  padding-top: 12px;
+  border-top: 1px solid #302023;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #76565a;
+}
+
+.lost-meta b {
+  color: #aa7479;
+}
+
+.lost-meta i {
+  padding: 0 7px;
+  color: var(--red-dark);
+}
+
+
+/* =========================================================
+   BANKING / FINANCIAL STATUS
+========================================================= */
+
+.bank-app {
+  padding: 20px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.bank-card {
+  position: relative;
+  min-height: 245px;
+  padding: 25px;
+
+  border-radius: 18px;
+
+  background:
+    radial-gradient(circle at 80% 10%, rgba(255,255,255,.09), transparent 28%),
+    linear-gradient(135deg, #1e2227 0%, #101215 55%, #090a0b 100%);
+
+  border: 1px solid #383c41;
+
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.35),
+    inset 0 1px rgba(255,255,255,.06);
+
+  overflow: hidden;
+}
+
+.bank-card::after {
+  content: "03";
+
+  position: absolute;
+  right: -10px;
+  bottom: -65px;
+
+  font-family: var(--font-condensed);
+  font-size: 190px;
+  line-height: 1;
+  font-weight: 900;
+
+  color: rgba(255,255,255,.025);
+}
+
+.bank-card-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 1.7px;
+  color: #92969b;
+}
+
+.bank-card-top b {
+  font-size: 16px;
+  font-style: italic;
+  color: #ddd;
+}
+
+.bank-chip {
+  width: 42px;
+  height: 31px;
+  margin: 30px 0 24px;
+  padding: 5px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+
+  border: 1px solid #8c8066;
+  border-radius: 6px;
+  background: #b2a17d;
+}
+
+.bank-chip i {
+  border: 1px solid rgba(0,0,0,.28);
+}
+
+.bank-number {
+  position: relative;
+  z-index: 2;
+
+  font-family: var(--font-condensed);
+  font-size: clamp(18px, 2.2vw, 28px);
+  letter-spacing: 3px;
+  color: #d6d7d8;
+}
+
+.bank-card-bottom {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  gap: 35px;
+  margin-top: 24px;
+}
+
+.bank-card-bottom span,
+.bank-balance span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 6px;
+  letter-spacing: 1.3px;
+  color: #6d7176;
+}
+
+.bank-card-bottom strong {
+  font-family: var(--font-condensed);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.bank-balance {
+  position: absolute;
+  z-index: 3;
+  right: 25px;
+  bottom: 23px;
+
+  text-align: right;
+}
+
+.bank-balance strong {
+  display: block;
+  margin-top: 2px;
+
+  font-family: var(--font-condensed);
+  font-size: 23px;
+  line-height: 1;
+
+  color: var(--red-light);
+}
+
+.bank-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 15px;
+
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.bank-summary > div {
+  padding: 11px;
+
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.bank-summary span {
+  display: block;
+
+  font-family: var(--font-condensed);
+  font-size: 6px;
+  letter-spacing: 1px;
+  color: var(--grey-dark);
+}
+
+.bank-summary strong {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+}
+
+.transactions {
+  margin-top: 25px;
+}
+
+.transactions-heading {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+
+  font-family: var(--font-condensed);
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.transactions-heading span {
+  color: var(--grey-dark);
+}
+
+.transaction {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  gap: 10px;
+  align-items: center;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid rgba(255,255,255,.045);
+}
+
+.transaction-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  background: #0e1012;
+
+  font-size: 12px;
+}
+
+.transaction-name strong,
+.transaction-name span {
+  display: block;
+  font-family: var(--font-condensed);
+}
+
+.transaction-name strong {
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+
+.transaction-name span {
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: var(--grey-dark);
+}
+
+.transaction > b {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  color: #aaa;
+}
+
+.transaction.incoming > b {
+  color: #b8c4b9;
+}
+
+.transaction.overdue {
+  background: linear-gradient(90deg, rgba(165,31,37,.08), transparent);
+}
+
+.transaction.overdue > b,
+.transaction.overdue .transaction-name span {
+  color: var(--red-light);
+}
+
+
+/* =========================================================
+   FULL WIDTH / RESPONSIVE
+========================================================= */
+
+.zeke-panel {
+  width: 100%;
+  padding:
+    clamp(25px, 4vw, 70px)
+    clamp(18px, 5vw, 90px);
+}
+
+@media (min-width: 1500px) {
+
+  .profile-layout {
+    grid-template-columns:
+      minmax(280px, .75fr)
+      minmax(420px, 1.5fr)
+      minmax(260px, .75fr);
+
+    gap: clamp(30px, 4vw, 70px);
+  }
+
+  .profile-photo {
+    height: min(600px, 60vh);
+  }
+
+  .car-stage {
+    min-height: 470px;
+  }
+
+  .car-image {
+    width: min(70%, 1100px);
+  }
+
+  .connections-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .extras-layout {
+    grid-template-columns: 1fr 1.4fr .8fr;
+  }
+
+}
+
+@media (max-width: 1000px) {
+
+  .risk-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .profile-layout {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .driver-stats {
+    grid-column: 1 / -1;
+  }
+
+  .garage-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-title {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dashboard-data {
+    min-height: 80px;
+  }
+
+  .dashboard-preference {
+    border-top: 1px solid var(--border);
+  }
+
+  .car-data-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ghost-file {
+    grid-template-columns: 1fr;
+  }
+
+  .connections-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .extras-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .zeke-phone {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .history-line::before {
+    left: 118px;
+  }
+
+  .history-event {
+    grid-template-columns: 90px 40px 1fr;
+  }
+
+  .legal-record {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .collection-specs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .zeke-header-top {
+    padding: 0 15px;
+  }
+
+  .zeke-header-top span:nth-child(2) {
+    display: none;
+  }
+
+  .zeke-header-content {
+    left: 25px;
+    right: 25px;
+  }
+
+  .zeke-driver-id {
+    display: none;
+  }
+
+  .profile-layout,
+  .profile-bottom,
+  .extras-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    height: 480px;
+  }
+
+  .connections-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .zeke-header {
+    height: 420px;
+  }
+
+  .zeke-header-title h1 {
+    font-size: 80px;
+  }
+
+  .zeke-lastname {
+    letter-spacing: 4px;
+  }
+
+  .zeke-nav {
+    height: 58px;
+  }
+
+  .zeke-nav label {
+    font-size: 0;
+  }
+
+  .zeke-nav label small {
+    font-size: 11px;
+  }
+
+  .section-code {
+    display: none;
+  }
+
+  .history-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .history-hero-number {
+    font-size: 230px;
+  }
+
+  .chapter-heading {
+    grid-template-columns: 45px 1fr;
+  }
+
+  .chapter-location {
+    display: none;
+  }
+
+  .history-line::before {
+    left: 17px;
+  }
+
+  .history-event,
+  .history-event.legal-event {
+    grid-template-columns: 35px 1fr;
+    padding: 28px 0;
+  }
+
+  .history-date {
+    grid-column: 2;
+    text-align: left;
+    padding: 0 0 8px 10px;
+  }
+
+  .history-dot {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .history-event-content {
+    grid-column: 2;
+    padding-left: 10px;
+  }
+
+  .legal-record {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-car {
+    min-height: auto;
+  }
+
+  .collection-image {
+    height: 190px;
+  }
+
+  .collection-heading {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .collection-heading small {
+    text-align: right;
+  }
+
+  .car-stage {
+    min-height: 270px;
+  }
+
+  .car-image {
+    width: 100%;
+  }
+
+  .car-model h4 {
+    font-size: 65px;
+  }
+
+  .car-specifications {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .connection {
+    grid-template-columns: 105px 1fr;
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  .zeke-header {
+    height: 390px;
+  }
+
+  .zeke-header-title h1 {
+    font-size: 68px;
+  }
+
+  .zeke-lastname {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  .zeke-header-tags span {
+    font-size: 8px;
+  }
+
+  .zeke-panel {
+    padding: 22px 14px;
+  }
+
+  .profile-photo {
+    height: 410px;
+  }
+
+  .collection-specs,
+  .car-specifications {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media (max-width: 1000px) {
+  .profile-extended {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-app {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .lost-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mood-profile-top {
+    grid-template-columns: 55px 1fr;
+  }
+
+  .mood-stats {
+    grid-column: 1 / -1;
+    justify-content: space-around;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 500px) {
+  .psyche-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bank-card {
+    min-height: 285px;
+  }
+
+  .bank-card-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bank-balance {
+    left: 25px;
+    right: auto;
+    bottom: 20px;
+    text-align: left;
+  }
+
+  .bank-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction {
+    grid-template-columns: 30px 1fr auto;
+  }
+}
+
+
+/* =========================================================
+   EXTRAS V2 — THREE EQUAL HEIGHT PANELS
+   Playlist / SMS / Financial Status
+========================================================= */
+
+.extras-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* All three cards share the exact same desktop height. */
+.playlist,
+.zeke-phone,
+.bank-app {
+  height: clamp(650px, 72vh, 790px);
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* PLAYLIST */
+.playlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist .mini-title,
+.playlist-cover {
+  flex: 0 0 auto;
+}
+
+.playlist-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 7px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red-dark) #0d0f10;
+}
+
+/* PHONE */
+.zeke-phone {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-top,
+.phone-contact,
+.phone-input {
+  flex: 0 0 auto;
+}
+
+.phone-messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 7px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red-dark) #0d0f10;
+}
+
+.phone-input {
+  margin-top: 12px;
+}
+
+/* BANK */
+.bank-app {
+  display: flex;
+  flex-direction: column;
+}
+
+.bank-app > .mini-title,
+.bank-card,
+.bank-summary {
+  flex: 0 0 auto;
+}
+
+.transactions {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 7px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--red-dark) #0d0f10;
+}
+
+/* Compact the card slightly so the transaction history has breathing room. */
+.bank-card {
+  min-height: 230px;
+}
+
+.playlist-scroll::-webkit-scrollbar,
+.phone-messages::-webkit-scrollbar,
+.transactions::-webkit-scrollbar {
+  width: 4px;
+}
+
+.playlist-scroll::-webkit-scrollbar-track,
+.phone-messages::-webkit-scrollbar-track,
+.transactions::-webkit-scrollbar-track {
+  background: #0d0f10;
+}
+
+.playlist-scroll::-webkit-scrollbar-thumb,
+.phone-messages::-webkit-scrollbar-thumb,
+.transactions::-webkit-scrollbar-thumb {
+  background: var(--red-dark);
+}
+
+/* =========================================================
+   STICKY TAB BAR
+   Important: Tumblr parent containers must not use overflow:hidden
+   around .zeke-sheet or CSS sticky cannot escape that scroll box.
+========================================================= */
+
+.zeke-sheet {
+  overflow: visible;
+}
+
+.zeke-header {
+  overflow: hidden;
+}
+
+.zeke-nav {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 99999 !important;
+
+  isolation: isolate;
+
+  box-shadow:
+    0 1px 0 var(--border),
+    0 10px 25px rgba(0,0,0,.28);
+}
+
+/* Keep the active panel below the sticky navigation. */
+.zeke-panels {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1100px) {
+  .extras-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .playlist,
+  .zeke-phone,
+  .bank-app {
+    width: 100%;
+    height: min(760px, 78vh);
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 600px) {
+  .playlist,
+  .zeke-phone,
+  .bank-app {
+    height: 650px;
+    min-height: 0;
+  }
+}
+
+
+/* =========================================================
+   EXTRAS V3 — BANK / PLAYLIST / PHONE
+   Only the playlist tracks scroll.
+========================================================= */
+
+.extras-layout {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Three equal-height columns */
+.bank-app,
+.playlist,
+.zeke-phone {
+  width: 100%;
+  height: clamp(650px, 72vh, 790px);
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
+
+/* BANK — no internal scrolling */
+.bank-app {
+  display: flex;
+  flex-direction: column;
+}
+
+.bank-app .transactions {
+  flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible !important;
+  padding-right: 0;
+}
+
+/* PLAYLIST — ONLY the songs scroll */
+.playlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist .mini-title,
+.playlist .playlist-cover {
+  flex: 0 0 auto;
+}
+
+.playlist-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-right: 7px;
+
+  scrollbar-width: thin;
+  scrollbar-color: var(--red-dark) #0d0f10;
+}
+
+.playlist-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.playlist-scroll::-webkit-scrollbar-track {
+  background: #0d0f10;
+}
+
+.playlist-scroll::-webkit-scrollbar-thumb {
+  background: var(--red-dark);
+}
+
+/* PHONE — no internal scrolling */
+.zeke-phone {
+  display: flex;
+  flex-direction: column;
+}
+
+.zeke-phone .phone-messages {
+  flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible !important;
+  padding-right: 0;
+}
+
+.zeke-phone .phone-input {
+  margin-top: auto;
+}
+
+/* Kill scrollbars inherited from the previous version */
+.phone-messages::-webkit-scrollbar,
+.transactions::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .extras-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bank-app,
+  .playlist,
+  .zeke-phone {
+    height: 700px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bank-app,
+  .playlist,
+  .zeke-phone {
+    height: 650px;
+  }
+}
+
+
+/* =========================================================
+   GARAGE V4 — 3/4 HERO CARS + WASTED ARCHIVE
+========================================================= */
+
+/* Main garage hero cars:
+   keep the large stage, but make 3/4 PNGs breathe inside it. */
+.car-image {
+  width: min(61%, 950px) !important;
+  max-width: 61% !important;
+  max-height: 82% !important;
+  object-fit: contain !important;
+}
+
+/* Slightly more breathing room between the hero car and lower data panel. */
+.car-stage {
+  padding: 25px 5% 38px !important;
+}
+
+/* =========================================================
+   LOST / WRECKED / GONE
+   Text/UI stays above the vehicle; vehicle becomes a
+   monochrome "wasted/archive" visual layer.
+========================================================= */
+
+.lost-car {
+  position: relative;
+  isolation: isolate;
+  min-height: 470px;
+  padding: 24px !important;
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(180deg, rgba(10,11,12,.96) 0%, rgba(10,11,12,.80) 31%, rgba(10,11,12,.25) 60%, rgba(10,11,12,.92) 100%),
+    #0b0c0e !important;
+
+  overflow: hidden;
+}
+
+/* Large ghost number / archive atmosphere */
+.lost-car::before {
+  content: "WASTED";
+
+  position: absolute;
+  z-index: 0;
+  right: -8px;
+  bottom: 48px;
+
+  font-family: var(--font-condensed);
+  font-size: clamp(62px, 8vw, 130px);
+  line-height: .8;
+  font-weight: 900;
+  letter-spacing: -3px;
+
+  color: rgba(255,255,255,.018);
+  pointer-events: none;
+}
+
+/* Status always sits on top */
+.lost-status {
+  z-index: 6 !important;
+
+  background: rgba(9,10,11,.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Reorder the existing HTML visually:
+   title/info first, vehicle second, description last. */
+.lost-car > span {
+  order: 1;
+  position: relative;
+  z-index: 5;
+
+  width: fit-content;
+  max-width: calc(100% - 110px);
+
+  margin-top: 2px;
+}
+
+.lost-car h4 {
+  order: 2;
+  position: relative;
+  z-index: 5;
+
+  width: fit-content;
+  max-width: 72%;
+
+  margin: 5px 0 0 !important;
+
+  font-size: clamp(29px, 3vw, 47px) !important;
+
+  text-shadow:
+    0 2px 15px rgba(0,0,0,.9),
+    0 0 35px rgba(0,0,0,.8);
+}
+
+/* The car itself is now the middle visual layer. */
+.lost-image {
+  order: 3;
+
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 280px !important;
+
+  margin: -15px 0 -4px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent !important;
+  overflow: visible;
+}
+
+/* AUTOMATIC WASTED LOOK:
+   Any normal colour PNG placed here becomes monochrome. */
+.lost-image img {
+  width: min(88%, 720px) !important;
+  max-width: 88% !important;
+  max-height: 270px !important;
+  object-fit: contain !important;
+
+  filter:
+    grayscale(100%)
+    saturate(0%)
+    contrast(118%)
+    brightness(58%)
+    drop-shadow(0 18px 20px rgba(0,0,0,.65)) !important;
+
+  opacity: .82;
+
+  transition:
+    filter .25s ease,
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+/* Keep the archive feeling even on hover; don't restore colour. */
+.lost-car:hover .lost-image img {
+  filter:
+    grayscale(100%)
+    saturate(0%)
+    contrast(125%)
+    brightness(68%)
+    drop-shadow(0 20px 24px rgba(0,0,0,.72)) !important;
+
+  opacity: .92;
+  transform: scale(1.015);
+}
+
+/* Description and metadata remain above the image layer. */
+.lost-car p {
+  order: 4;
+  position: relative;
+  z-index: 5;
+
+  margin-top: 5px !important;
+
+  text-shadow: 0 2px 12px rgba(0,0,0,.95);
+}
+
+.lost-meta {
+  order: 5;
+  position: relative;
+  z-index: 5;
+
+  margin-top: auto !important;
+
+  background: rgba(9,10,11,.58);
+}
+
+/* Red "dead file" accent line */
+.lost-car::after {
+  content: "";
+
+  position: absolute;
+  z-index: 4;
+  left: 24px;
+  top: 87px;
+
+  width: 42px;
+  height: 2px;
+
+  background: var(--red);
+  box-shadow: 0 0 16px rgba(165,31,37,.35);
+}
+
+/* On narrow screens the hero vehicle can use a little more width. */
+@media (max-width: 1000px) {
+  .car-image {
+    width: min(70%, 850px) !important;
+    max-width: 70% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .car-image {
+    width: 82% !important;
+    max-width: 82% !important;
+    max-height: 78% !important;
+  }
+
+  .lost-car {
+    min-height: 430px;
+  }
+
+  .lost-image {
+    height: 235px !important;
+    margin-top: -5px !important;
+  }
+
+  .lost-image img {
+    width: 92% !important;
+    max-width: 92% !important;
+    max-height: 225px !important;
+  }
+
+  .lost-car h4 {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   GARAGE V5 — HERO CAR POSITION / MODEL LAYERS
+   3/4 PNG tuning
+========================================================= */
+
+/* Keep the stage generous, but prevent the hero PNG from
+   falling into the technical information panel below. */
+.car-stage {
+  position: relative !important;
+  min-height: 360px !important;
+  height: clamp(360px, 32vw, 440px) !important;
+  padding: 15px 4% 35px !important;
+  overflow: hidden !important;
+}
+
+/* Main 3/4 vehicle.
+   These pixel values are intentionally easy to tweak later. */
+.car-image {
+  position: absolute !important;
+  z-index: 3 !important;
+
+  left: 50% !important;
+  right: auto !important;
+
+  /* Raise the car inside the stage instead of only shrinking it. */
+  top: 46% !important;
+  bottom: auto !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  max-width: 980px !important;
+  max-height: 510px !important;
+
+  object-fit: contain !important;
+
+  transform: translate(-44%, -50%) !important;
+
+  filter: drop-shadow(0 25px 24px rgba(0,0,0,.58));
+}
+
+/* ---------------------------------------------------------
+   MODEL TYPOGRAPHY LAYERING
+
+   Big model word = atmospheric background, behind the PNG.
+   Year / manufacturer / trim = foreground, above the PNG.
+--------------------------------------------------------- */
+
+.car-model {
+  position: absolute !important;
+  z-index: 2 !important;
+
+  left: 0 !important;
+  top: 50% !important;
+
+  width: min(44%, 650px);
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+/* Put every normal model label above the vehicle by default. */
+.car-model > span,
+.car-model > strong,
+.car-model > small {
+  position: relative;
+  z-index: 6;
+}
+
+/* Manufacturer, e.g. NISSAN */
+.car-model > strong {
+  display: block;
+  width: fit-content;
+
+  text-shadow:
+    0 2px 8px rgba(8,9,10,.95),
+    0 0 18px rgba(8,9,10,.85);
+}
+
+/* Year / small labels */
+.car-model > span,
+.car-model > small {
+  width: fit-content;
+
+  text-shadow:
+    0 2px 7px rgba(8,9,10,.95),
+    0 0 15px rgba(8,9,10,.85);
+}
+
+/* The giant model name remains behind the PNG on purpose. */
+.car-model h4 {
+  position: relative !important;
+  z-index: 1 !important;
+
+  width: max-content;
+  max-width: none;
+
+  text-shadow: none !important;
+}
+
+/* R34 / secondary model line:
+   lift it back above the PNG if it is a sibling label. */
+.car-model h4 + span,
+.car-model h4 + small,
+.car-model h4 + strong {
+  position: relative !important;
+  z-index: 7 !important;
+
+  display: block;
+  width: fit-content;
+
+  text-shadow:
+    0 2px 8px rgba(8,9,10,.98),
+    0 0 18px rgba(8,9,10,.9);
+}
+
+/* Ensure the data panel itself always wins over the PNG. */
+.car-data-layout {
+  position: relative !important;
+  z-index: 10 !important;
+
+  background: rgba(10,11,12,.97);
+}
+
+/* Slight dark separation between the car stage and specs. */
+.car-data-layout::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  left: 0;
+  right: 0;
+  top: -22px;
+
+  height: 22px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(10,11,12,.92)
+  );
+
+  pointer-events: none;
+}
+
+/* Large displays can let the car breathe a little more. */
+@media (min-width: 1500px) {
+  .car-stage {
+    min-height: 570px !important;
+    height: clamp(570px, 42vw, 680px) !important;
+  }
+
+  .car-image {
+    max-width: 980px !important;
+    max-height: 510px !important;
+    top: 45% !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .car-stage {
+    min-height: 470px !important;
+    height: 52vw !important;
+    max-height: 560px;
+  }
+
+  .car-image {
+    max-width: min(82vw, 850px) !important;
+    max-height: 430px !important;
+    top: 45% !important;
+    transform: translate(-46%, -50%) !important;
+  }
+
+  .car-model {
+    width: 50%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .car-stage {
+    min-height: 360px !important;
+    height: 78vw !important;
+    max-height: 470px;
+    padding-bottom: 45px !important;
+  }
+
+  .car-image {
+    max-width: 92% !important;
+    max-height: 310px !important;
+
+    left: 53% !important;
+    top: 52% !important;
+
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .car-model {
+    left: 4% !important;
+    top: 30% !important;
+
+    width: 70%;
+
+    transform: none;
+  }
+
+  .car-model h4 {
+    opacity: .5;
+  }
+}
+
+
+
+
+
+
+/* ============================================================
+   ZEKE V7 CLEAN — TUMBLR COMPATIBILITY LAYER
+   One document scroll only:
+   HEADER -> STICKY NAV -> ACTIVE PANEL
+
+   Important:
+   - no viewport JS
+   - no 100vh hero
+   - no inner page scrollbar
+   - no fixed/absolute page sections
+   - header stays in normal document flow
+   ============================================================ */
+
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  background: #090a0b !important;
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  background: #090a0b !important;
+
+  /* Tumblr must own the page scroll. */
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* The theme itself is NOT a second viewport. */
+.zeke-sheet {
+  --page-pad: clamp(34px, 4.65vw, 75px);
+  --profile-photo: clamp(300px, 21vw, 340px);
+  --analysis-col: clamp(280px, 20.7vw, 335px);
+  --profile-gap: clamp(34px, 4vw, 65px);
+
+  display: block !important;
+  position: relative !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+  overflow-y: visible !important;
+
+  transform: none !important;
+  contain: none !important;
+  isolation: auto !important;
+
+  background: #090a0b !important;
+}
+
+/* Hidden radio controls never affect document geometry. */
+.zeke-sheet > input[name="zeke-tabs"] {
+  display: none !important;
+}
+
+
+/* ============================================================
+   01 — HEADER
+   Real finite block at the TOP of the page.
+   ============================================================ */
+
+.zeke-sheet > .zeke-header,
+.zeke-sheet > header.zeke-header {
+  display: block !important;
+  position: relative !important;
+
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+
+  width: 100% !important;
+  height: 615px !important;
+  min-height: 615px !important;
+  max-height: 615px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  transform: none !important;
+  translate: none !important;
+
+  z-index: 1 !important;
+  background: #08090a !important;
+}
+
+/* Everything cinematic is clipped INSIDE the 615px hero. */
+.zeke-header-bg,
+.zeke-header-noise {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+.zeke-header-bg {
+  overflow: hidden !important;
+}
+
+.zeke-header-bg img {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  margin: 0 !important;
+  transform: none !important;
+
+  filter:
+    grayscale(100%)
+    contrast(115%)
+    brightness(48%) !important;
+}
+
+/* Preserve the original cinematic darkening. */
+.zeke-header-bg::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6,7,8,.98) 0%,
+      rgba(6,7,8,.80) 26%,
+      rgba(6,7,8,.34) 57%,
+      rgba(6,7,8,.18) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(6,7,8,.96) 0%,
+      rgba(6,7,8,.18) 42%,
+      rgba(6,7,8,.14) 100%
+    ) !important;
+}
+
+.zeke-header-top {
+  position: absolute !important;
+  top: 13px !important;
+  left: 27px !important;
+  right: 27px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  z-index: 5 !important;
+}
+
+/* Identity stays at the lower left of the hero. */
+.zeke-header-content {
+  position: absolute !important;
+  inset: auto 4.3vw 42px 4.3vw !important;
+
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  transform: none !important;
+  z-index: 5 !important;
+}
+
+.zeke-header-title {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.zeke-header-title h1 {
+  margin: 10px 0 0 !important;
+  line-height: .82 !important;
+}
+
+/* Driver ID remains locked to the lower-right of the same hero. */
+.zeke-driver-id {
+  position: relative !important;
+  right: auto !important;
+  bottom: auto !important;
+  flex: 0 0 auto !important;
+}
+
+
+/* ============================================================
+   02 — NAVIGATION
+   Normal flow under hero; sticky only once reached.
+   ============================================================ */
+
+.zeke-sheet > .zeke-nav,
+.zeke-sheet > nav.zeke-nav {
+  display: grid !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+
+  top: 0 !important;
+  inset-inline: auto !important;
+
+  width: 100% !important;
+  height: 70px !important;
+  min-height: 70px !important;
+  max-height: 70px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  z-index: 9999 !important;
+
+  overflow: visible !important;
+  transform: none !important;
+  contain: none !important;
+
+  background: #0e1012 !important;
+  box-shadow:
+    0 1px 0 #292c30,
+    0 10px 25px rgba(0,0,0,.28) !important;
+}
+
+
+/* ============================================================
+   03 — PANELS
+   Ordinary opaque document content after the navigation.
+   ============================================================ */
+
+.zeke-panel {
+  position: relative !important;
+  inset: auto !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+
+  overflow: visible !important;
+  overflow-y: visible !important;
+
+  transform: none !important;
+  translate: none !important;
+
+  contain: none !important;
+  isolation: auto !important;
+
+  background: #090a0b !important;
+  z-index: 0 !important;
+}
+
+/* Before JS initializes, PROFILE is the only visible panel.
+   This prevents Tumblr's first-paint flash. */
+html:not(.zeke-js-ready) .zeke-panel {
+  display: none !important;
+}
+
+html:not(.zeke-js-ready) .panel-profile {
+  display: block !important;
+}
+
+/* After JS initializes, JS is the only source of tab visibility. */
+html.zeke-js-ready .zeke-panel {
+  display: none !important;
+}
+
+html.zeke-js-ready .zeke-panel.zeke-panel-active {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Active navigation state controlled by JS. */
+html.zeke-js-ready .zeke-nav label {
+  background: transparent !important;
+  color: #777 !important;
+}
+
+html.zeke-js-ready .zeke-nav label::after {
+  left: 50% !important;
+  width: 0 !important;
+}
+
+html.zeke-js-ready .zeke-nav label.zeke-nav-active {
+  color: var(--white) !important;
+  background: #151719 !important;
+}
+
+html.zeke-js-ready .zeke-nav label.zeke-nav-active::after {
+  left: 0 !important;
+  width: 100% !important;
+}
+
+/* Keep the desktop proportions from the reference screenshots. */
+@media (min-width: 1450px) {
+  .zeke-panel {
+    padding-left: var(--page-pad) !important;
+    padding-right: var(--page-pad) !important;
+  }
+
+  .profile-layout {
+    grid-template-columns:
+      var(--profile-photo)
+      minmax(0, 1fr)
+      var(--analysis-col) !important;
+    gap: var(--profile-gap) !important;
+    align-items: start !important;
+  }
+
+  .profile-photo {
+    width: var(--profile-photo) !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Laptop / medium desktop. */
+@media (min-width: 1050px) and (max-width: 1449px) {
+  .zeke-panel {
+    padding-left: clamp(28px, 4vw, 58px) !important;
+    padding-right: clamp(28px, 4vw, 58px) !important;
+  }
+
+  .profile-layout {
+    grid-template-columns:
+      clamp(260px, 23vw, 320px)
+      minmax(0, 1fr)
+      clamp(260px, 22vw, 310px) !important;
+    gap: clamp(25px, 3vw, 45px) !important;
+  }
+}
+
+/* Tablet: header still exists as a normal top block; only layout compacts. */
+@media (min-width: 720px) and (max-width: 1049px) {
+  .zeke-sheet > .zeke-header,
+  .zeke-sheet > header.zeke-header {
+    height: 520px !important;
+    min-height: 520px !important;
+    max-height: 520px !important;
+  }
+
+  .zeke-header-content {
+    inset: auto 34px 34px 34px !important;
+  }
+
+  .zeke-panel {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  .profile-layout {
+    grid-template-columns: minmax(240px, .72fr) 1.28fr !important;
+    gap: 32px !important;
+  }
+
+  .driver-stats {
+    grid-column: 1 / -1 !important;
+  }
+
+  .profile-extended,
+  .extras-layout,
+  .connections-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Phones: compact but still HEADER -> NAV -> CONTENT. */
+@media (max-width: 719px) {
+  .zeke-sheet > .zeke-header,
+  .zeke-sheet > header.zeke-header {
+    height: 440px !important;
+    min-height: 440px !important;
+    max-height: 440px !important;
+  }
+
+  .zeke-header-bg img {
+    object-position: 58% center !important;
+  }
+
+  .zeke-header-top {
+    left: 16px !important;
+    right: 16px !important;
+  }
+
+  .zeke-header-top span:nth-child(2) {
+    display: none !important;
+  }
+
+  .zeke-header-content {
+    inset: auto 20px 26px 20px !important;
+    align-items: flex-end !important;
+  }
+
+  .zeke-header-title h1 {
+    font-size: clamp(64px, 22vw, 105px) !important;
+  }
+
+  .zeke-driver-id {
+    text-align: right !important;
+    margin-left: 14px !important;
+  }
+
+  .zeke-sheet > .zeke-nav,
+  .zeke-sheet > nav.zeke-nav {
+    height: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+  }
+
+  .zeke-nav label {
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .zeke-nav label small {
+    display: none !important;
+  }
+
+  .zeke-panel {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .profile-layout,
+  .profile-bottom,
+  .profile-extended,
+  .extras-layout,
+  .connections-grid,
+  .garage-dashboard {
+    grid-template-columns: 1fr !important;
+  }
+
+  .profile-photo {
+    width: min(100%, 360px) !important;
+    margin-inline: auto !important;
+  }
+
+  .info-grid,
+  .risk-summary,
+  .car-specifications,
+  .collection-specs {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ============================================================
+   GARAGE — preserve the raised transparent PNG composition
+   without tying it to viewport JS classes.
+   ============================================================ */
+
+@media (min-width: 1450px) {
+  .car-image {
+    top: 41% !important;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1449px) {
+  .car-image {
+    top: 43% !important;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1049px) {
+  .car-image {
+    top: 45% !important;
+  }
+}
+
+@media (max-width: 719px) {
+  .car-image {
+    top: 49% !important;
+  }
+}
+
+/* Last safety rule: nothing in our own theme creates a second page scroll. */
+.zeke-sheet,
+.zeke-sheet > .zeke-panel,
+.zeke-sheet > .zeke-header {
+  overscroll-behavior: auto !important;
+}
+
+</style>
+</head>
+<body>
+<div class="zeke-sheet">
+
+  <!-- =====================================================
+       CSS-ONLY TAB SYSTEM
+  ====================================================== -->
+  <input type="radio" name="zeke-tabs" id="zeke-tab-01" checked>
+  <input type="radio" name="zeke-tabs" id="zeke-tab-02">
+  <input type="radio" name="zeke-tabs" id="zeke-tab-03">
+  <input type="radio" name="zeke-tabs" id="zeke-tab-04">
+  <input type="radio" name="zeke-tabs" id="zeke-tab-05">
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="zeke-header">
+
+    <div class="zeke-header-bg">
+      <img src="https://getwallpapers.com/wallpaper/full/0/f/e/808606-fast-and-furious-wallpapers-1920x1080-720p.jpg"
+           alt="Zeke Ellington">
+    </div>
+
+    <div class="zeke-header-noise"></div>
+
+    <div class="zeke-header-top">
+      <span>ELLINGTON // FILE 03</span>
+      <span>CHICAGO, IL</span>
+      <span>STATUS: ACTIVE</span>
+    </div>
+
+    <div class="zeke-header-content">
+
+      <div class="zeke-header-number">03</div>
+
+      <div class="zeke-header-title">
+        <div class="zeke-eyebrow">
+          MECHANIC / STREET DRIVER
+        </div>
+
+        <h1>ZEKE</h1>
+
+        <div class="zeke-lastname">
+          ZEKERIAH ELLINGTON
+        </div>
+
+        <div class="zeke-header-tags">
+          <span>21 YEARS</span>
+          <span>CHICAGO</span>
+          <span>MECHANIC</span>
+          <span class="danger">HIGH RISK</span>
+        </div>
+      </div>
+
+      <div class="zeke-driver-id">
+        <span class="small">DRIVER ID</span>
+        <strong>Z.E // 03</strong>
+        <span class="status-dot">● ACTIVE</span>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
+
+  <nav class="zeke-nav">
+
+    <label for="zeke-tab-01">
+      <small>01</small>
+      PROFILE
+    </label>
+
+    <label for="zeke-tab-02">
+      <small>02</small>
+      HISTORY
+    </label>
+
+    <label for="zeke-tab-03">
+      <small>03</small>
+      GARAGE
+    </label>
+
+    <label for="zeke-tab-04">
+      <small>04</small>
+      CONNECTIONS
+    </label>
+
+    <label for="zeke-tab-05">
+      <small>05</small>
+      EXTRAS
+    </label>
+
+  </nav>
+
+
+  <!-- =====================================================
+       01 — PROFILE
+  ====================================================== -->
+
+  <section class="zeke-panel panel-profile">
+
+    <div class="zeke-section-heading">
+      <div>
+        <span class="section-index">01 //</span>
+        <h2>DRIVER PROFILE</h2>
+      </div>
+
+      <span class="section-code">
+        PERSONNEL DATABASE
+      </span>
+    </div>
+
+
+    <div class="profile-layout">
+
+      <!-- portrait -->
+
+      <div class="profile-photo">
+
+        <img src="https://i.ibb.co/PZqn7Gyz/Image-Chat-GPT-29-sept-2026-21-00-57.png"
+             alt="Zeke">
+
+        <div class="photo-corner top-left"></div>
+        <div class="photo-corner bottom-right"></div>
+
+        <span class="photo-code">
+          SUBJECT_03_ZEKERIAH_ELLINGTON.PNG
+        </span>
+
+      </div>
+
+
+      <!-- identity -->
+
+      <div class="profile-information">
+
+        <div class="profile-name">
+
+          <span>FULL IDENTITY</span>
+
+          <h3>
+            ZEKERIAH
+            <b>ELLINGTON</b>
+          </h3>
+
+        </div>
+
+
+        <div class="info-grid">
+
+          <div class="info">
+            <span>ALIAS</span>
+            <strong>ZEKE</strong>
+          </div>
+
+          <div class="info">
+            <span>AGE</span>
+            <strong>21-23</strong>
+          </div>
+          
+          <div class="info">
+            <span>DATE OF BIRTH</span>
+            <strong>00/00/0000</strong>
+          </div>
+
+          <div class="info">
+            <span>GENDER</span>
+            <strong>MALE</strong>
+          </div>
+          
+          <div class="info">
+            <span>HEIGHT</span>
+            <strong>75 KG / 165,3 LBS</strong>
+          </div>
+          
+          <div class="info">
+            <span>WEIGHT</span>
+            <strong>1.91 M / 6′ 3″</strong>
+          </div>
+          
+          <div class="info">
+            <span>EYES</span>
+            <strong>BROWN</strong>
+          </div>
+          
+          <div class="info">
+            <span>HAIR</span>
+            <strong>BLACK</strong>
+          </div>
+
+          <div class="info">
+            <span>LOCATION</span>
+            <strong>CHICAGO, IL</strong>
+          </div>
+
+          <div class="info">
+            <span>OCCUPATION</span>
+            <strong>MECHANIC</strong>
+          </div>
+
+          <div class="info">
+            <span>NATIONALITY</span>
+            <strong>AMERICAN</strong>
+          </div>
+
+          <div class="info">
+            <span>ETHNICITY</span>
+            <strong>AFRO-CARIBBEAN</strong>
+          </div>
+          
+          <div class="info">
+            <span>RELATIONSHIP</span>
+            <strong>SINGLE</strong>
+          </div>
+
+          <div class="info">
+            <span>FINANCIAL STATUS</span>
+            <strong>IN DEBT</strong>
+          </div>
+          
+          <div class="info">
+            <span>AFFILIATION</span>
+            <strong>###</strong>
+          </div>
+
+          <div class="info">
+            <span>BLOOD TYPE</span>
+            <strong>O NEGATIVE</strong>
+          </div>
+          
+          <div class="info">
+            <span>DRIVER'S LICENSE</span>
+            <strong>VALID</strong>
+          </div>
+
+          <div class="info">
+            <span>EMERGENCY CONTACT</span>
+            <strong>KAIRO ELLINGTON</strong>
+          </div>
+
+          <div class="info">
+            <span>STATUS</span>
+            <strong class="red-text">ACTIVE</strong>
+          </div>
+
+          <div class="info">
+            <span>LEGAL RECORD</span>
+            <strong>PENDING</strong>
+          </div>
+
+        </div>
+
+
+        <div class="zeke-quote">
+          SUBJECT HAS REPEATEDLY BEEN OBSERVED IN CONNECTION WITH UNAUTHORIZED STREET RACING EVENTS. POSSIBLE LINKS TO ORGANIZED VEHICLE THEFT / RACING NETWORK REMAIN UNCONFIRMED.
+        </div>
+
+      </div>
+
+
+      <!-- stats -->
+
+      <div class="driver-stats">
+
+        <div class="mini-title">
+          DRIVER ANALYSIS
+          <span>LIVE DATA</span>
+        </div>
+
+
+        <div class="stat">
+          <div>
+            <span>MECHANICS</span>
+            <b>96</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:96%"></i>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <span>DRIVING</span>
+            <b>91</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:91%"></i>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <span>DRIFT</span>
+            <b>84</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:84%"></i>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <span>REACTION</span>
+            <b>93</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:93%"></i>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <span>PRECISION</span>
+            <b>89</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:89%"></i>
+          </div>
+        </div>
+
+        <div class="stat">
+          <div>
+            <span>ADAPTABILITY</span>
+            <b>87</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:87%"></i>
+          </div>
+        </div>
+
+        <div class="stat danger-stat">
+          <div>
+            <span>SELF CONTROL</span>
+            <b>31</b>
+          </div>
+          <div class="stat-track">
+            <i style="width:31%"></i>
+          </div>
+        </div>
+
+
+        <div class="risk-box">
+
+          <span>RISK ASSESSMENT</span>
+
+          <strong>CRITICAL</strong>
+
+          <div class="risk-bars">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><em></em>
+          </div>
+
+          <div class="risk-summary">
+            <div>
+              <span>DRIVING STYLE</span>
+              <strong>AGGRESSIVE / INSTINCTIVE</strong>
+            </div>
+            <div>
+              <span>SPECIALTY</span>
+              <strong>HIGH-SPEED / STREET</strong>
+            </div>
+            <div>
+              <span>PREFERRED DRIVE</span>
+              <strong>RWD</strong>
+            </div>
+            <div>
+              <span>SHIFTING</span>
+              <strong>MANUAL</strong>
+            </div>
+            <div>
+              <span>UNDER PRESSURE</span>
+              <strong class="red-text">UNPREDICTABLE</strong>
+            </div>
+            <div>
+              <span>PRIMARY WEAKNESS</span>
+              <strong>IMPULSE CONTROL</strong>
+            </div>
+          </div>
+
+          <div class="risk-note">
+            <span>ANALYST NOTE // FLAG 03</span>
+            <p>
+              HIGH TECHNICAL ABILITY / LOW SELF-PRESERVATION.
+              SUBJECT DISPLAYS ABOVE-AVERAGE VEHICLE CONTROL BUT A REPEATED
+              TENDENCY TO ESCALATE UNDER PRESSURE.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- character information -->
+
+    <div class="profile-bottom">
+
+      <div class="profile-text">
+
+        <div class="mini-title">
+          PERSONALITY
+          <span>SUBJECT ANALYSIS</span>
+        </div>
+
+        <p>
+          Fier, impulsif et beaucoup trop habitué à gérer ses problèmes
+          seul, Zeke donne souvent l'impression que rien ne l'atteint.
+          Il préfère plaisanter, provoquer ou disparaître plutôt
+          qu'admettre qu'il est dépassé.
+        </p>
+
+        <p>
+          Extrêmement loyal envers sa famille, il peut pourtant devenir
+          son propre pire ennemi lorsqu'il estime devoir la protéger.
+          Les moteurs sont probablement les seules choses qu'il comprend
+          mieux que les gens.
+        </p>
+
+      </div>
+
+
+      <div class="trait-grid">
+
+        <span>LOYAL</span>
+        <span>STUBBORN</span>
+        <span>IMPULSIVE</span>
+        <span>PROTECTIVE</span>
+        <span>RESOURCEFUL</span>
+        <span>RECKLESS</span>
+
+      </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         EXTENDED CHARACTER DATA
+    ==================================================== -->
+
+    <div class="profile-extended">
+
+      <div class="psyche-card">
+        <div class="mini-title">
+          CHARACTER MATRIX
+          <span>PSYCHOLOGICAL / ASTRO DATA</span>
+        </div>
+
+        <div class="psyche-grid">
+          <div><span>SUN</span><strong>—</strong><small>TO DEFINE</small></div>
+          <div><span>MOON</span><strong>—</strong><small>TO DEFINE</small></div>
+          <div><span>RISING</span><strong>—</strong><small>ASCENDANT</small></div>
+          <div><span>DESCENDANT</span><strong>—</strong><small>TO DEFINE</small></div>
+
+          <div><span>MBTI</span><strong>ESTP</strong><small>PLACEHOLDER</small></div>
+          <div><span>ENNEAGRAM</span><strong>8w7</strong><small>PLACEHOLDER</small></div>
+          <div><span>ALIGNMENT</span><strong>CHAOTIC NEUTRAL</strong><small>PLACEHOLDER</small></div>
+          <div><span>TEMPERAMENT</span><strong>CHOLERIC</strong><small>PLACEHOLDER</small></div>
+
+          <div><span>ATTACHMENT</span><strong>AVOIDANT</strong><small>BEHAVIORAL PATTERN</small></div>
+          <div><span>CONFLICT STYLE</span><strong>CONFRONTATIONAL</strong><small>HIGH REACTIVITY</small></div>
+          <div><span>TRUST INDEX</span><strong>LOW</strong><small>SELECTIVE / FAMILY BIAS</small></div>
+          <div><span>LOYALTY INDEX</span><strong>EXTREME</strong><small>PRIMARY VULNERABILITY</small></div>
+
+          <div><span>STRESS RESPONSE</span><strong>FIGHT / FLIGHT</strong><small>ESCALATION LIKELY</small></div>
+          <div><span>AUTHORITY RESPONSE</span><strong>RESISTANT</strong><small>NON-COMPLIANT</small></div>
+          <div><span>RISK TOLERANCE</span><strong>VERY HIGH</strong><small>SELF-ENDANGERING</small></div>
+          <div><span>CORE MOTIVE</span><strong>PROTECTION</strong><small>FAMILY / CONTROL</small></div>
+        </div>
+
+        <p class="psyche-note">
+          Les valeurs sont volontairement faciles à remplacer. Pour le zodiac
+          complet, il faudra fixer la date, l'heure et le lieu de naissance de Zeke.
+        </p>
+      </div>
+
+
+      <div class="mood-profile">
+        <div class="social-intel-strip">
+          <span>SOCIAL MEDIA INTELLIGENCE</span>
+          <strong>ACCOUNT LOCATED // PUBLIC DATA CAPTURE</strong>
+          <em>LAST SCRAPE: 09.30.2026 // 01:42 CST</em>
+        </div>
+
+        <div class="mood-profile-top">
+          <div class="mood-avatar">
+            <img src="https://placehold.co/120x120/171717/777?text=ZE">
+          </div>
+
+          <div class="mood-user">
+            <strong>@zeke.ellington</strong>
+            <span>private archive // 09 posts</span>
+          </div>
+
+          <div class="mood-stats">
+            <div><strong>09</strong><span>POSTS</span></div>
+            <div><strong>2.1K</strong><span>FOLLOWERS</span></div>
+            <div><strong>184</strong><span>FOLLOWING</span></div>
+          </div>
+        </div>
+
+        <div class="mood-grid">
+          <img src="https://placehold.co/500x500/111/555?text=01">
+          <img src="https://placehold.co/500x500/161616/555?text=02">
+          <img src="https://placehold.co/500x500/0d0d0d/555?text=03">
+          <img src="https://placehold.co/500x500/191919/555?text=04">
+          <img src="https://placehold.co/500x500/101010/555?text=05">
+          <img src="https://placehold.co/500x500/151515/555?text=06">
+          <img src="https://placehold.co/500x500/0c0c0c/555?text=07">
+          <img src="https://placehold.co/500x500/181818/555?text=08">
+          <img src="https://placehold.co/500x500/121212/555?text=09">
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       02 — HISTORY
+  ====================================================== -->
+
+  <section class="zeke-panel panel-history">
+
+    <div class="zeke-section-heading">
+      <div>
+        <span class="section-index">02 //</span>
+        <h2>CASE HISTORY</h2>
+      </div>
+
+      <span class="section-code">
+        LIFE RECORD / PARTIALLY CLASSIFIED
+      </span>
+    </div>
+
+
+    <div class="history-hero">
+
+      <div class="history-hero-number">02</div>
+
+      <div class="history-hero-title">
+        <span>SUBJECT HISTORY</span>
+
+        <h3>
+          EVERY BAD DECISION<br>
+          LEAVES A TRACE.
+        </h3>
+      </div>
+
+      <div class="history-hero-description">
+        <p>
+          Ici tu peux écrire une introduction générale à l'histoire de Zeke :
+          son enfance, sa famille, son rapport à la mécanique et la façon dont
+          il a progressivement glissé vers une vie beaucoup plus dangereuse.
+        </p>
+
+        <div class="history-legend">
+          <span><i></i> PERSONAL RECORD</span>
+          <span class="legal"><i></i> LEGAL / POLICE RECORD</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- CHAPTER 01 -->
+    <div class="history-chapter">
+
+      <div class="chapter-heading">
+        <span class="chapter-number">01</span>
+
+        <div>
+          <small>2002 — 2014</small>
+          <h3>THE EARLY YEARS</h3>
+        </div>
+
+        <span class="chapter-location">CHICAGO, ILLINOIS</span>
+      </div>
+
+      <div class="history-line">
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2002</strong>
+            <span>AGE 00</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">PERSONAL</span>
+            <h4>ZEKERIAH ELLINGTON.</h4>
+            <p>
+              Naissance de Zeke. Tu peux développer ici son enfance,
+              son environnement familial et sa relation avec ses frères.
+            </p>
+          </div>
+        </article>
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2010</strong>
+            <span>AGE 08</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">FAMILY</span>
+            <h4>PUT IT BACK TOGETHER.</h4>
+            <p>
+              Premier véritable intérêt pour la mécanique. Il commence
+              par démonter tout ce qui lui tombe sous la main, quitte
+              à ne pas toujours réussir à le remonter ensuite.
+            </p>
+          </div>
+        </article>
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2014</strong>
+            <span>AGE 12</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">MECHANICS</span>
+            <h4>FIRST ENGINE.</h4>
+            <p>
+              Développe ici un événement important de son adolescence
+              lié aux voitures, au garage ou à la mécanique.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- CHAPTER 02 -->
+    <div class="history-chapter">
+
+      <div class="chapter-heading">
+        <span class="chapter-number">02</span>
+
+        <div>
+          <small>2015 — 2023</small>
+          <h3>GREASE & GASOLINE</h3>
+        </div>
+
+        <span class="chapter-location">BEFORE THE RACES</span>
+      </div>
+
+      <div class="history-line">
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2018</strong>
+            <span>AGE 16</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">MECHANICS</span>
+            <h4>THE GARAGE.</h4>
+            <p>
+              Zeke commence à passer beaucoup plus de temps dans les garages
+              qu'ailleurs. La mécanique devient progressivement son domaine,
+              puis son métier.
+            </p>
+          </div>
+        </article>
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2020</strong>
+            <span>AGE 18</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">PERSONAL</span>
+            <h4>FIRST CAR.</h4>
+            <p>
+              Il récupère sa première véritable voiture : une 350Z qui
+              nécessite tellement de réparations que la plupart des gens
+              auraient simplement abandonné.
+            </p>
+          </div>
+        </article>
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2023</strong>
+            <span>AGE 21</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">FINANCIAL</span>
+            <h4>THE MONEY STARTS DISAPPEARING.</h4>
+            <p>
+              C'est ici que tu peux développer les premiers gros problèmes
+              financiers de Zeke et expliquer pourquoi il commence à cacher
+              sa situation à ses frères.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- CHAPTER 03 -->
+    <div class="history-chapter">
+
+      <div class="chapter-heading">
+        <span class="chapter-number">03</span>
+
+        <div>
+          <small>2024 — 2025</small>
+          <h3>THE UNDERGROUND</h3>
+        </div>
+
+        <span class="chapter-location">NIGHT SHIFT</span>
+      </div>
+
+      <div class="history-line">
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2024</strong>
+            <span>SPRING</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">FINANCIAL</span>
+            <h4>CASH ONLY.</h4>
+            <p>
+              À court d'argent, Zeke commence à accepter certaines réparations
+              payées en liquide. Les voitures arrivent parfois sans plaques.
+              Les propriétaires ne donnent presque jamais leur véritable nom.
+            </p>
+          </div>
+        </article>
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2024</strong>
+            <span>AUTUMN</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">STREET RACING</span>
+            <h4>THE FIRST RUN.</h4>
+            <p>
+              Un pilote manque à l'appel quelques minutes avant une course.
+              Zeke connaît la voiture puisqu'il l'a préparée. Il accepte de
+              prendre le volant.
+            </p>
+
+            <blockquote>
+              He was supposed to fix the cars. Nobody asked him to be good at driving them.
+            </blockquote>
+          </div>
+        </article>
+
+        <article class="history-event legal-event">
+          <div class="history-date">
+            <strong>2025</strong>
+            <span>02:13 AM</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">⚠ POLICE RECORD</span>
+            <h4>CASE #26-04187</h4>
+            <p>
+              Une course clandestine se termine par un accident grave.
+              Plusieurs voitures prennent la fuite. Celle conduite par
+              Zeke est retrouvée sur les lieux.
+            </p>
+
+            <div class="legal-record">
+              <div>
+                <span>LOCATION</span>
+                <strong>LOWER WACKER DR.</strong>
+              </div>
+              <div>
+                <span>VEHICLE</span>
+                <strong>TOYOTA SUPRA MK IV</strong>
+              </div>
+              <div>
+                <span>DRIVER</span>
+                <strong>Z. ELLINGTON</strong>
+              </div>
+              <div>
+                <span>FATALITIES</span>
+                <strong>01</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="history-event legal-event">
+          <div class="history-date">
+            <strong>2025</strong>
+            <span>+ 02 DAYS</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">⚠ ARREST</span>
+            <h4>TAKEN INTO CUSTODY.</h4>
+            <p>
+              Tu peux raconter ici exactement comment Zeke est arrêté,
+              combien de temps il est retenu, ce qu'il raconte à la police
+              et ce que les enquêteurs parviennent réellement à prouver.
+            </p>
+
+            <div class="police-stamp">SUBJECT QUESTIONED</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- CHAPTER 04 -->
+    <div class="history-chapter">
+
+      <div class="chapter-heading">
+        <span class="chapter-number">04</span>
+
+        <div>
+          <small>2026 — PRESENT</small>
+          <h3>NO CLEAN EXIT</h3>
+        </div>
+
+        <span class="chapter-location">CURRENT TIMELINE</span>
+      </div>
+
+      <div class="history-line">
+
+        <article class="history-event">
+          <div class="history-date">
+            <strong>2026</strong>
+            <span>NOW</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">CURRENT</span>
+            <h4>BACK BEHIND THE WHEEL.</h4>
+            <p>
+              Malgré tout ce qui s'est passé, Zeke continue de courir.
+              Pas nécessairement parce qu'il le souhaite encore, mais parce
+              que les personnes qui organisent les courses savent désormais
+              exactement comment le faire obéir.
+            </p>
+          </div>
+        </article>
+
+        <article class="history-event legal-event">
+          <div class="history-date">
+            <strong>2026</strong>
+            <span>ACTIVE</span>
+          </div>
+
+          <div class="history-dot"></div>
+
+          <div class="history-event-content">
+            <span class="event-type">⚠ LEGAL STATUS</span>
+            <h4>ONE MORE STRIKE.</h4>
+            <p>
+              Mets ici sa situation judiciaire actuelle : probation,
+              charges abandonnées, enquête toujours ouverte, permis,
+              conditions éventuelles, etc.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       03 — GARAGE
+  ====================================================== -->
+
+  <section class="zeke-panel panel-garage">
+
+    <div class="zeke-section-heading">
+      <div>
+        <span class="section-index">03 //</span>
+        <h2>THE GARAGE</h2>
+      </div>
+
+      <span class="section-code">
+        VEHICLE DATABASE / 07 VEHICLES
+      </span>
+    </div>
+
+
+    <!-- racing record -->
+
+    <div class="garage-dashboard">
+
+      <div class="dashboard-title">
+        <small>ZEKE ELLINGTON</small>
+        <strong>DRIVER RECORD</strong>
+      </div>
+
+      <div class="dashboard-data">
+        <div>
+          <strong>17</strong>
+          <span>STARTS</span>
+        </div>
+
+        <div>
+          <strong>11</strong>
+          <span>WINS</span>
+        </div>
+
+        <div>
+          <strong>03</strong>
+          <span>DNF</span>
+        </div>
+
+        <div>
+          <strong>01</strong>
+          <span>ARREST</span>
+        </div>
+      </div>
+
+      <div class="dashboard-preference">
+        <span>PREFERRED CONFIGURATION</span>
+        <strong>RWD / MANUAL / JAPANESE IMPORT</strong>
+      </div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         CAR 01
+    ==================================================== -->
+
+    <article class="zeke-car">
+
+      <div class="car-background-number">
+        01
+      </div>
+
+
+      <div class="car-heading">
+
+        <div>
+          <span class="car-category">PERSONAL VEHICLE</span>
+          <h3>THE DAILY</h3>
+        </div>
+
+        <div class="car-status owned">
+          ● OWNED
+        </div>
+
+      </div>
+
+
+      <div class="car-stage">
+
+        <div class="car-image">
+          <!-- Remplace par ton PNG transparent -->
+          <img src="https://i.ibb.co/hJQmXSd7/Image-Chat-GPT-30-sept-2026-01-14-04.png"
+               alt="Ford Mustang Shelby GT500 S550">
+        </div>
+
+        <div class="car-model">
+          <small>2020</small>
+          <strong>FORD MUSTANG</strong>
+          <h4>SHELBY GT500 S550</h4>
+        </div>
+
+      </div>
+
+
+      <div class="car-data-layout">
+
+        <div class="car-specifications">
+
+          <div>
+            <span>ENGINE</span>
+            <strong>PREDATOR</strong>
+          </div>
+
+          <div>
+            <span>LAYOUT</span>
+            <strong>RWD</strong>
+          </div>
+
+          <div>
+            <span>TRANSMISSION</span>
+            <strong>7-SPEED MANUAL</strong>
+          </div>
+
+          <div>
+            <span>POWER</span>
+            <strong>760 HP</strong>
+          </div>
+
+          <div>
+            <span>0–100 KM/H</span>
+            <strong>3.5 SEC</strong>
+          </div>
+
+          <div>
+            <span>STATUS</span>
+            <strong>MODIFIED</strong>
+          </div>
+
+        </div>
+
+
+        <div class="car-story">
+
+          <span class="tiny-label">
+            ACQUISITION FILE
+          </span>
+
+          <h5>BUILT, NOT BOUGHT.</h5>
+
+          <p>
+            Achetée pratiquement bonne pour la casse pour quelques
+            milliers de dollars. Zeke l'a reconstruite pendant plus
+            d'un an, pièce après pièce, souvent avec davantage de
+            patience qu'il n'en accorde aux êtres humains.
+          </p>
+
+          <blockquote>
+            “She's temperamental. So am I.”
+          </blockquote>
+
+        </div>
+
+
+        <div class="car-performance">
+
+          <div class="performance-row">
+            <span>SPEED</span>
+            <div><i style="width:92%"></i></div>
+            <b>92</b>
+          </div>
+
+          <div class="performance-row">
+            <span>POWER</span>
+            <div><i style="width:96%"></i></div>
+            <b>96</b>
+          </div>
+
+          <div class="performance-row">
+            <span>CONTROL</span>
+            <div><i style="width:84%"></i></div>
+            <b>84</b>
+          </div>
+
+          <div class="performance-row">
+            <span>ZEKE'S TRUST</span>
+            <div><i style="width:88%"></i></div>
+            <b>88</b>
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- ===================================================
+         CAR 02
+    ==================================================== -->
+
+    <article class="zeke-car race-car">
+
+      <div class="car-background-number">
+        02
+      </div>
+
+
+      <div class="car-heading">
+
+        <div>
+          <span class="car-category">RACE VEHICLE</span>
+          <h3>THE RACER</h3>
+        </div>
+
+        <div class="car-status danger">
+          ● ACTIVE
+        </div>
+
+      </div>
+
+
+      <div class="ownership-warning">
+
+        <span>
+          PROPERTY OF
+        </span>
+
+        <strong>
+          ██████████████
+        </strong>
+
+        <span>
+          AUTHORIZED DRIVER // Z. ELLINGTON
+        </span>
+
+      </div>
+
+
+      <div class="car-stage">
+
+        <div class="car-image">
+          <img src="https://i.ibb.co/23zzhjBQ/Image-Chat-GPT-29-sept-2026-20-39-25.png"
+               alt="Nissan Skyline GT-R R34">
+        </div>
+
+        <div class="car-model">
+          <small>1999</small>
+          <strong>NISSAN</strong>
+          <h4>SKYLINE GT-R</h4>
+          <span>R34</span>
+        </div>
+
+      </div>
+
+
+      <div class="car-data-layout">
+
+        <div class="car-specifications">
+
+          <div>
+            <span>ENGINE</span>
+            <strong>RB26DETT</strong>
+          </div>
+
+          <div>
+            <span>INDUCTION</span>
+            <strong>TWIN TURBO</strong>
+          </div>
+
+          <div>
+            <span>DRIVETRAIN</span>
+            <strong>AWD</strong>
+          </div>
+
+          <div>
+            <span>POWER</span>
+            <strong>712 HP</strong>
+          </div>
+
+          <div>
+            <span>TOP SPEED</span>
+            <strong>310 KM/H</strong>
+          </div>
+
+          <div>
+            <span>0–100 KM/H</span>
+            <strong>3.1 SEC</strong>
+          </div>
+
+        </div>
+
+
+        <div class="car-story">
+
+          <span class="tiny-label red-text">
+            STREET RACING VEHICLE
+          </span>
+
+          <h5>THE ONE THEY WANT HIM IN.</h5>
+
+          <p>
+            Zeke ne possède pas cette voiture. Il l'entretient,
+            la connaît presque boulon par boulon et, lorsque de
+            l'argent doit changer de mains au milieu de la nuit,
+            c'est pourtant lui qu'on installe derrière son volant.
+          </p>
+
+          <div class="illegal-warning">
+            ⚠ VEHICLE CONNECTED TO ILLEGAL STREET RACING
+          </div>
+
+        </div>
+
+
+        <div class="car-performance">
+
+          <div class="performance-row">
+            <span>SPEED</span>
+            <div><i style="width:96%"></i></div>
+            <b>96</b>
+          </div>
+
+          <div class="performance-row">
+            <span>POWER</span>
+            <div><i style="width:94%"></i></div>
+            <b>94</b>
+          </div>
+
+          <div class="performance-row">
+            <span>CONTROL</span>
+            <div><i style="width:87%"></i></div>
+            <b>87</b>
+          </div>
+
+          <div class="performance-row">
+            <span>RISK</span>
+            <div><i style="width:98%"></i></div>
+            <b>98</b>
+          </div>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- ===================================================
+         CAR 03 / THE GHOST
+    ==================================================== -->
+
+    <article class="zeke-car ghost-car">
+
+      <div class="car-background-number">
+        03
+      </div>
+
+
+      <div class="car-heading">
+
+        <div>
+          <span class="car-category">EVIDENCE FILE</span>
+          <h3>THE GHOST</h3>
+        </div>
+
+        <div class="car-status impounded">
+          × IMPOUNDED
+        </div>
+
+      </div>
+
+
+      <div class="evidence-strip">
+        POLICE EVIDENCE // DO NOT REMOVE //
+        CASE 26-04187 // POLICE EVIDENCE // DO NOT REMOVE
+      </div>
+
+
+      <div class="car-stage">
+
+        <div class="car-image">
+          <img src="https://i.ibb.co/V0sccycR/Image-Chat-GPT-30-sept-2026-00-38-22.png"
+               alt="Toyota Supra MK4">
+        </div>
+
+        <div class="car-model">
+          <small>1997</small>
+          <strong>TOYOTA</strong>
+          <h4>SUPRA</h4>
+          <span>MK IV</span>
+        </div>
+
+      </div>
+
+
+      <div class="ghost-file">
+
+        <div class="ghost-case">
+
+          <small>CHICAGO POLICE DEPARTMENT</small>
+
+          <strong>CASE #26-04187</strong>
+
+          <span>STATUS // INVESTIGATION CLOSED</span>
+
+        </div>
+
+
+        <div class="ghost-data">
+
+          <div>
+            <span>VEHICLE</span>
+            <b>TOYOTA SUPRA MK IV</b>
+          </div>
+
+          <div>
+            <span>REGISTERED OWNER</span>
+            <b>██████████████</b>
+          </div>
+
+          <div>
+            <span>DRIVER</span>
+            <b>ZEKE ELLINGTON</b>
+          </div>
+
+          <div>
+            <span>LOCATION</span>
+            <b>LOWER WACKER DR.</b>
+          </div>
+
+          <div>
+            <span>TIME</span>
+            <b>02:13 AM</b>
+          </div>
+
+          <div>
+            <span>RESULT</span>
+            <b>DNF</b>
+          </div>
+
+        </div>
+
+
+        <div class="fatality">
+
+          <span>INCIDENT REPORT</span>
+
+          <strong>
+            VEHICLE RECOVERED.
+            <br>
+            ONE FATALITY REPORTED.
+          </strong>
+
+          <small>
+            SUBJECT RELEASED PENDING INVESTIGATION.
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="ghost-footer">
+        ARCHIVED // EVIDENCE // DO NOT DRIVE
+      </div>
+
+    </article>
+
+
+    <!-- ===================================================
+         PRIVATE / WORKSHOP COLLECTION
+    ==================================================== -->
+
+    <div class="garage-collection">
+
+      <div class="collection-heading">
+        <div>
+          <span>ZEKE'S GARAGE</span>
+          <h3>PRIVATE / WORKSHOP COLLECTION</h3>
+        </div>
+
+        <small>04 ADDITIONAL VEHICLES</small>
+      </div>
+
+      <div class="collection-grid">
+
+        <article class="collection-car">
+          <div class="collection-number">04</div>
+          <div class="collection-status">OWNED</div>
+
+          <div class="collection-image">
+            <img src="https://i.ibb.co/Jj75BRkC/Image-Chat-GPT-30-sept-2026-00-50-20.png"
+                 alt="Dodge Viper ACR">
+          </div>
+
+          <div class="collection-model">
+            <span>2016 // USA</span>
+            <strong>DODGE</strong>
+            <h4>VIPER ACR</h4>
+          </div>
+
+          <div class="collection-specs">
+            <div><span>ENGINE</span><strong>EWG</strong></div>
+            <div><span>POWER</span><strong>645 HP</strong></div>
+            <div><span>DRIVE</span><strong>RWD</strong></div>
+            <div><span>GEARBOX</span><strong>6MT</strong></div>
+          </div>
+
+          <div class="collection-note">
+            <span>ZEKE'S NOTE</span>
+            <p>
+              Small, light and ridiculously fun. Doesn't need 700 horsepower
+              to make him smile.
+            </p>
+          </div>
+        </article>
+
+
+        <article class="collection-car">
+          <div class="collection-number">05</div>
+          <div class="collection-status">PROJECT</div>
+
+          <div class="collection-image">
+            <img src="https://placehold.co/700x350/111111/777777?text=BMW+E46+M3+PNG"
+                 alt="BMW M3 E46">
+          </div>
+
+          <div class="collection-model">
+            <span>2003 // GERMANY</span>
+            <strong>BMW</strong>
+            <h4>M3 E46</h4>
+          </div>
+
+          <div class="collection-specs">
+            <div><span>ENGINE</span><strong>S54</strong></div>
+            <div><span>POWER</span><strong>333 HP</strong></div>
+            <div><span>DRIVE</span><strong>RWD</strong></div>
+            <div><span>STATUS</span><strong>PROJECT</strong></div>
+          </div>
+
+          <div class="collection-note">
+            <span>ZEKE'S NOTE</span>
+            <p>
+              Bought cheap with a blown engine. Currently occupying far too
+              much space in the garage.
+            </p>
+          </div>
+        </article>
+
+
+        <article class="collection-car">
+          <div class="collection-number">06</div>
+          <div class="collection-status">OWNED</div>
+
+          <div class="collection-image">
+            <img src="https://placehold.co/700x350/111111/777777?text=EVO+IX+PNG"
+                 alt="Mitsubishi Lancer Evolution IX">
+          </div>
+
+          <div class="collection-model">
+            <span>2006 // JAPAN</span>
+            <strong>MITSUBISHI</strong>
+            <h4>EVO IX</h4>
+          </div>
+
+          <div class="collection-specs">
+            <div><span>ENGINE</span><strong>4G63T</strong></div>
+            <div><span>POWER</span><strong>286 HP</strong></div>
+            <div><span>DRIVE</span><strong>AWD</strong></div>
+            <div><span>STATUS</span><strong>MODIFIED</strong></div>
+          </div>
+
+          <div class="collection-note">
+            <span>ZEKE'S NOTE</span>
+            <p>
+              Built for bad weather, worse roads and decisions that probably
+              shouldn't be made.
+            </p>
+          </div>
+        </article>
+
+
+        <article class="collection-car">
+          <div class="collection-number">07</div>
+          <div class="collection-status">CUSTOMER</div>
+
+          <div class="collection-image">
+            <img src="https://placehold.co/700x350/111111/777777?text=PORSCHE+911+PNG"
+                 alt="Porsche 911 Turbo">
+          </div>
+
+          <div class="collection-model">
+            <span>2017 // GERMANY</span>
+            <strong>PORSCHE</strong>
+            <h4>911 TURBO</h4>
+          </div>
+
+          <div class="collection-specs">
+            <div><span>ENGINE</span><strong>3.8 TT</strong></div>
+            <div><span>POWER</span><strong>540 HP</strong></div>
+            <div><span>DRIVE</span><strong>AWD</strong></div>
+            <div><span>STATUS</span><strong>CUSTOMER</strong></div>
+          </div>
+
+          <div class="collection-note">
+            <span>ZEKE'S NOTE</span>
+            <p>Not his. Unfortunately.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- ===================================================
+         LOST / WRECKED VEHICLES
+    ==================================================== -->
+
+    <div class="lost-garage">
+
+      <div class="collection-heading">
+        <div>
+          <span>ARCHIVED VEHICLES</span>
+          <h3>LOST / WRECKED / GONE</h3>
+        </div>
+
+        <small>VEHICLES HE DOESN'T HAVE ANYMORE</small>
+      </div>
+
+      <div class="lost-grid">
+
+        <article class="lost-car">
+          <div class="lost-status">TOTALLED</div>
+          <div class="lost-image">
+            <img src="https://placehold.co/700x350/111/555?text=MAZDA+RX-7+FD+%2F+WRECKED">
+          </div>
+          <span>08 // FORMER RACE CAR</span>
+          <h4>MAZDA <b>RX-7 FD</b></h4>
+          <p>
+            Lost after a race ended against a concrete barrier. The shell was
+            beyond saving; Zeke kept one piece from the car in the garage.
+          </p>
+          <div class="lost-meta"><b>STATUS</b> WRITE-OFF <i>//</i> <b>LOSS</b> RACE NIGHT</div>
+        </article>
+
+        <article class="lost-car">
+          <div class="lost-status">LOST</div>
+          <div class="lost-image">
+            <img src="https://placehold.co/700x350/111/555?text=SUBARU+IMPREZA+WRX+STI">
+          </div>
+          <span>09 // FORMER OWNED VEHICLE</span>
+          <h4>SUBARU <b>WRX STI</b></h4>
+          <p>
+            Put up as collateral when he needed money fast. He was supposed
+            to get it back. He didn't.
+          </p>
+          <div class="lost-meta"><b>STATUS</b> FORFEITED <i>//</i> <b>LOSS</b> DEBT</div>
+        </article>
+
+        <article class="lost-car">
+          <div class="lost-status">DESTROYED</div>
+          <div class="lost-image">
+            <img src="https://placehold.co/700x350/111/555?text=FORD+MUSTANG+GT+%2F+DESTROYED">
+          </div>
+          <span>10 // BORROWED RACE VEHICLE</span>
+          <h4>FORD <b>MUSTANG GT</b></h4>
+          <p>
+            Never technically his. The car was destroyed during an underground
+            run and the bill became one more debt attached to his name.
+          </p>
+          <div class="lost-meta"><b>STATUS</b> DESTROYED <i>//</i> <b>LOSS</b> STREET RACE</div>
+        </article>
+
+        <article class="lost-car">
+          <div class="lost-status">SEIZED</div>
+          <div class="lost-image">
+            <img src="https://placehold.co/700x350/111/555?text=HONDA+CIVIC+TYPE+R">
+          </div>
+          <span>11 // FORMER PROJECT</span>
+          <h4>HONDA <b>CIVIC TYPE R</b></h4>
+          <p>
+            A cheap project that became evidence after the wrong people used
+            the garage. Zeke never saw the car again after it was seized.
+          </p>
+          <div class="lost-meta"><b>STATUS</b> SEIZED <i>//</i> <b>LOSS</b> POLICE HOLD</div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       04 — CONNECTIONS
+  ====================================================== -->
+
+  <section class="zeke-panel panel-connections">
+
+    <div class="zeke-section-heading">
+      <div>
+        <span class="section-index">04 //</span>
+        <h2>CONNECTIONS</h2>
+      </div>
+
+      <span class="section-code">
+        KNOWN ASSOCIATES
+      </span>
+    </div>
+
+
+    <div class="connections-grid">
+
+
+      <article class="connection">
+
+        <div class="connection-photo">
+          <img src="https://placehold.co/300x300/171717/777?text=DION">
+        </div>
+
+        <div class="connection-number">01</div>
+
+        <div class="connection-content">
+          <span>FAMILY // TWIN BROTHER</span>
+          <h3>DION “DIZZ” ELLINGTON</h3>
+
+          <p>
+            Description du lien entre Zeke et Dion. Tu peux mettre ici
+            leurs embrouilles, leur loyauté, ce qu'ils savent ou non
+            des problèmes de Zeke.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="connection">
+
+        <div class="connection-photo">
+          <img src="https://placehold.co/300x300/171717/777?text=KAIRO">
+        </div>
+
+        <div class="connection-number">02</div>
+
+        <div class="connection-content">
+          <span>FAMILY // TWIN BROTHER</span>
+          <h3>KAIRO “KAI” ELLINGTON</h3>
+
+          <p>
+            Description du lien. Ça peut aussi être intéressant
+            d'indiquer ici ce que Kai soupçonne à propos des courses
+            clandestines.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="connection dangerous-connection">
+
+        <div class="connection-photo">
+          <img src="https://placehold.co/300x300/171717/777?text=UNKNOWN">
+        </div>
+
+        <div class="connection-number">03</div>
+
+        <div class="connection-content">
+          <span>ASSOCIATE // HIGH RISK</span>
+          <h3>████████ ███████</h3>
+
+          <p>
+            Celui ou celle qui tient réellement Zeke par les couilles.
+            Dettes, courses, menaces : tout ce qu'il aurait préféré
+            ne jamais ramener jusque chez lui.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="connection">
+
+        <div class="connection-photo">
+          <img src="https://placehold.co/300x300/171717/777?text=NAME">
+        </div>
+
+        <div class="connection-number">04</div>
+
+        <div class="connection-content">
+          <span>CONNECTION // UNKNOWN</span>
+          <h3>NAME HERE</h3>
+
+          <p>
+            Description du lien ici.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       05 — EXTRAS
+  ====================================================== -->
+
+  <section class="zeke-panel panel-extras">
+
+    <div class="zeke-section-heading">
+      <div>
+        <span class="section-index">05 //</span>
+        <h2>EXTRA FILES</h2>
+      </div>
+
+      <span class="section-code">
+        PERSONAL DATA
+      </span>
+    </div>
+
+
+    <div class="extras-layout">
+
+
+      <!-- bank / financial status -->
+
+      <div class="bank-app">
+
+        <div class="mini-title">
+          FINANCIAL STATUS
+          <span>CHECKING ACCOUNT // LIVE</span>
+        </div>
+
+        <div class="bank-card">
+          <div class="bank-card-top">
+            <span>ELLINGTON // 03</span>
+            <b>VISA</b>
+          </div>
+
+          <div class="bank-chip">
+            <i></i><i></i><i></i>
+          </div>
+
+          <div class="bank-number">
+            •••• &nbsp; •••• &nbsp; •••• &nbsp; 7284
+          </div>
+
+          <div class="bank-card-bottom">
+            <div>
+              <span>CARD HOLDER</span>
+              <strong>ZEKERIAH ELLINGTON</strong>
+            </div>
+            <div>
+              <span>VALID THRU</span>
+              <strong>08/29</strong>
+            </div>
+          </div>
+
+          <div class="bank-balance">
+            <span>AVAILABLE BALANCE</span>
+            <strong>-$184.37</strong>
+          </div>
+        </div>
+
+
+        <div class="bank-summary">
+          <div>
+            <span>PENDING</span>
+            <strong>-$73.18</strong>
+          </div>
+          <div>
+            <span>OVERDRAFT</span>
+            <strong class="red-text">ACTIVE</strong>
+          </div>
+          <div>
+            <span>AVAILABLE CREDIT</span>
+            <strong>$41.00</strong>
+          </div>
+        </div>
+
+
+        <div class="transactions">
+
+          <div class="transactions-heading">
+            <strong>RECENT ACTIVITY</strong>
+            <span>SEPTEMBER // 2026</span>
+          </div>
+
+          <div class="transaction">
+            <div class="transaction-icon">⛽</div>
+            <div class="transaction-name">
+              <strong>BP GAS STATION</strong>
+              <span>TODAY // 01:34 AM</span>
+            </div>
+            <b>-$68.42</b>
+          </div>
+
+          <div class="transaction">
+            <div class="transaction-icon">🔧</div>
+            <div class="transaction-name">
+              <strong>AUTO PARTS WAREHOUSE</strong>
+              <span>YESTERDAY // 06:12 PM</span>
+            </div>
+            <b>-$214.89</b>
+          </div>
+
+          <div class="transaction">
+            <div class="transaction-icon">☕</div>
+            <div class="transaction-name">
+              <strong>24/7 DINER</strong>
+              <span>SEP 27 // 03:08 AM</span>
+            </div>
+            <b>-$11.73</b>
+          </div>
+
+          <div class="transaction incoming">
+            <div class="transaction-icon">↙</div>
+            <div class="transaction-name">
+              <strong>CASH DEPOSIT</strong>
+              <span>SEP 26 // 11:47 PM</span>
+            </div>
+            <b>+$300.00</b>
+          </div>
+
+          <div class="transaction overdue">
+            <div class="transaction-icon">!</div>
+            <div class="transaction-name">
+              <strong>GARAGE RENT</strong>
+              <span>PAYMENT FAILED</span>
+            </div>
+            <b>-$1,480.00</b>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- playlist -->
+
+      <div class="playlist">
+
+        <div class="mini-title">
+          NIGHT DRIVE
+          <span>ZEKE'S PLAYLIST</span>
+        </div>
+
+        <div class="playlist-cover">
+          <img src="https://placehold.co/500x300/111/555?text=NIGHT+DRIVE">
+          <span>▶</span>
+        </div>
+
+
+        <div class="playlist-scroll">
+
+        <div class="track">
+          <b>01</b>
+          <div>
+            <strong>SONG TITLE</strong>
+            <span>ARTIST NAME</span>
+          </div>
+          <small>03:42</small>
+        </div>
+
+        <div class="track">
+          <b>02</b>
+          <div>
+            <strong>SONG TITLE</strong>
+            <span>ARTIST NAME</span>
+          </div>
+          <small>04:01</small>
+        </div>
+
+        <div class="track">
+          <b>03</b>
+          <div>
+            <strong>SONG TITLE</strong>
+            <span>ARTIST NAME</span>
+          </div>
+          <small>02:57</small>
+        </div>
+
+        <div class="track">
+          <b>04</b>
+          <div>
+            <strong>SONG TITLE</strong>
+            <span>ARTIST NAME</span>
+          </div>
+          <small>03:36</small>
+        </div>
+
+        </div><!-- /playlist-scroll -->
+
+      </div><!-- /playlist -->
+
+
+      <!-- phone -->
+
+      <div class="zeke-phone">
+
+        <div class="phone-top">
+          <span>02:13</span>
+          <span>● ● ●</span>
+        </div>
+
+        <div class="phone-contact">
+          UNKNOWN
+          <small>ENCRYPTED NUMBER</small>
+        </div>
+
+        <div class="phone-messages">
+
+        <div class="message received">
+          You racing tonight?
+          <small>01:47</small>
+        </div>
+
+        <div class="message sent">
+          Told you I'm done.
+          <small>01:51</small>
+        </div>
+
+        <div class="message received">
+          That's not really your decision.
+          <small>01:52</small>
+        </div>
+
+        <div class="message received warning-message">
+          Ask your brothers.
+          <small>01:52</small>
+        </div>
+
+        </div><!-- /phone-messages -->
+
+        <div class="phone-input">
+          MESSAGE...
+          <span>→</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- footer -->
+
+  <footer class="zeke-footer">
+    <span>ZEKE ELLINGTON // CHARACTER DATABASE</span>
+    <span>ENGINE STATUS <b>●</b> RUNNING</span>
+  </footer>
+
+</div>
+<script>
+/* ============================================================
+   ZEKE V7 CLEAN — TUMBLR TAB CONTROLLER
+   JS does ONE thing only: switch tabs.
+   It never:
+   - calculates viewport/header height
+   - changes page layout
+   - scrolls the page
+   - writes a URL hash
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var root = document.documentElement;
+
+  function initZekeTabs() {
+    var labels = Array.prototype.slice.call(
+      document.querySelectorAll('.zeke-nav label[for^="zeke-tab-"]')
+    );
+
+    var radios = Array.prototype.slice.call(
+      document.querySelectorAll('input[name="zeke-tabs"]')
+    );
+
+    var panels = [
+      document.querySelector('.panel-profile'),
+      document.querySelector('.panel-history'),
+      document.querySelector('.panel-garage'),
+      document.querySelector('.panel-connections'),
+      document.querySelector('.panel-extras')
+    ];
+
+    if (!labels.length || panels.some(function (panel) { return !panel; })) {
+      root.classList.add('zeke-js-ready');
+      return;
+    }
+
+    function activate(index) {
+      index = Math.max(0, Math.min(index, panels.length - 1));
+
+      panels.forEach(function (panel, i) {
+        var active = i === index;
+        panel.classList.toggle('zeke-panel-active', active);
+        panel.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+
+      labels.forEach(function (label, i) {
+        var active = i === index;
+        label.classList.toggle('zeke-nav-active', active);
+        label.setAttribute('aria-selected', active ? 'true' : 'false');
+        label.setAttribute('tabindex', active ? '0' : '-1');
+      });
+
+      radios.forEach(function (radio, i) {
+        radio.checked = i === index;
+      });
+    }
+
+    labels.forEach(function (label, index) {
+      label.setAttribute('role', 'tab');
+
+      label.addEventListener('click', function (event) {
+        event.preventDefault();
+        activate(index);
+      });
+
+      label.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activate(index);
+        }
+      });
+    });
+
+    /* Always load the Tumblr page at its natural top with PROFILE active.
+       We deliberately do not call scrollTo: Tumblr owns the page position. */
+    activate(0);
+    root.classList.add('zeke-js-ready');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initZekeTabs, { once: true });
+  } else {
+    initZekeTabs();
+  }
+})();
+</script>
+</body>
+</html>
